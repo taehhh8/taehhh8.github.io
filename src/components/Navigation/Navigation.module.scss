@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all $transition-base;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: $shadow-md;
+    border-bottom-color: $border-color;
+  }
+
+  .container {
+    @include container;
+    @include flex-between;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    @include gradient-text;
+
+    a {
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    gap: $spacing-lg;
+    align-items: center;
+
+    @include respond-to(md) {
+      gap: $spacing-xl;
+    }
+
+    a {
+      color: $text-primary;
+      font-weight: 500;
+      transition: color $transition-base;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        transition: width $transition-base;
+      }
+
+      &:hover {
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-md - 1px) {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: white;
+      padding: $spacing-lg;
+      box-shadow: $shadow-lg;
+      transform: translateX(-100%);
+      transition: transform $transition-base;
+      gap: $spacing-md;
+
+      &.open {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .mobileToggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-xs;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: $text-primary;
+      border-radius: 2px;
+      transition: all $transition-base;
+    }
+
+    @media (max-width: $breakpoint-md - 1px) {
+      display: flex;
+    }
+  }
+}

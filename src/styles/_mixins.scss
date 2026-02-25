@@ -1,0 +1,115 @@
+@import './variables';
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include respond-to(lg) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+// Section spacing
+@mixin section {
+  padding: $spacing-2xl 0;
+
+  @include respond-to(lg) {
+    padding: 5rem 0;
+  }
+}
+
+// Gradient text
+@mixin gradient-text {
+  background: linear-gradient(135deg, $primary-color, $secondary-color, $accent-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Card styles
+@mixin card {
+  background: $light-surface;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-md;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Button styles
+@mixin button-primary {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: white;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-secondary {
+  background: transparent;
+  color: $primary-color;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  border: 2px solid $primary-color;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+  }
+}

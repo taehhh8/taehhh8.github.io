@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact {
+  @include section;
+  background: $light-surface;
+
+  .container {
+    @include container;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: $spacing-md;
+
+    .gradient {
+      @include gradient-text;
+    }
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-2xl;
+  }
+
+  .contactGrid {
+    display: grid;
+    gap: $spacing-lg;
+    max-width: 900px;
+    margin: 0 auto $spacing-2xl;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contactCard {
+    @include card;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    text-decoration: none;
+    color: inherit;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-xl;
+    }
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .info {
+    flex: 1;
+  }
+
+  .label {
+    font-size: 1rem;
+    margin-bottom: $spacing-xs;
+    color: $text-primary;
+  }
+
+  .value {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding-top: $spacing-xl;
+    border-top: 1px solid $border-color;
+    color: $text-secondary;
+    font-size: 0.875rem;
+  }
+}

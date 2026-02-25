@@ -1,0 +1,92 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.about {
+  @include section;
+  background: $light-surface;
+
+  .container {
+    @include container;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+
+    .gradient {
+      @include gradient-text;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: $spacing-xl;
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  .text {
+    p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: $spacing-md;
+      color: $text-secondary;
+    }
+  }
+
+  .highlights {
+    display: flex;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+    flex-wrap: wrap;
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-md;
+    background: white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+    min-width: 120px;
+    transition: transform $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .number {
+      font-size: 2rem;
+      font-weight: 700;
+      @include gradient-text;
+      margin-bottom: $spacing-xs;
+    }
+
+    .label {
+      font-size: 0.875rem;
+      color: $text-secondary;
+    }
+  }
+
+  .image {
+    @include flex-center;
+
+    .imagePlaceholder {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, $primary-color, $secondary-color);
+      border-radius: $radius-xl;
+      @include flex-center;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      box-shadow: $shadow-xl;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@import './variables';
+@import './mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  color: $text-primary;
+  background-color: $light-bg;
+  overflow-x: hidden;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark-bg;
+    color: $dark-text-primary;
+  }
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: 2.5rem;
+
+  @include respond-to(md) {
+    font-size: 3.5rem;
+  }
+
+  @include respond-to(lg) {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+
+  @include respond-to(md) {
+    font-size: 2.5rem;
+  }
+
+  @include respond-to(lg) {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+
+  @include respond-to(md) {
+    font-size: 1.875rem;
+  }
+}
+
+p {
+  margin-bottom: $spacing-md;
+  color: $text-secondary;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Utility classes
+.container {
+  @include container;
+}
+
+.section {
+  @include section;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gradient-text {
+  @include gradient-text;
+}
