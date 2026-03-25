@@ -119,7 +119,7 @@ const beatSwapScreenshots: ProjectScreenshot[] = [
   { image: BeatswapOracleTopallPage, alt: 'BeatSwap — 오라클 Top All' },
 ];
 
-/** AUG Token (project id: 7) — `src/assets/AugToken` */
+/** AUG Token (project id: 7) — `src/assets/AUGToken` */
 const augTokenScreenshots: ProjectScreenshot[] = [
   { image: AugTokenMainPage, alt: 'AUG Token — 메인 페이지' },
   { image: AUGDepositPage, alt: 'AUG Token — 예치 페이지' },

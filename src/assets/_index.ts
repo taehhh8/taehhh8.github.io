@@ -62,9 +62,9 @@ import SajuMbtiInfo3 from "./SajuViewer/SajuMbtiInfo3.png";
 
 // AugToken project screenshots
 import AugTokenMainPage from "./AUGToken/AUGMainPage.png";
-import AUGDepositPage from "./AugToken/AUGDepositPage.png";
-import AUGMobileMainPage from "./AugToken/AUGMobileMainPage.png";
-import AUGMobileDepositPage from "./AugToken/AUGMobileDepositPage.png";
+import AUGDepositPage from "./AUGToken/AUGDepositPage.png";
+import AUGMobileMainPage from "./AUGToken/AUGMobileMainPage.png";
+import AUGMobileDepositPage from "./AUGToken/AUGMobileDepositPage.png";
 
 export {
   musikhanSalesMainPage,
