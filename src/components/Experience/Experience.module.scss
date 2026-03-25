@@ -105,6 +105,21 @@
     margin-left: auto;
   }
 
+  // Mobile: reduce left gutter so markers don't get clipped
+  @media (max-width: $breakpoint-sm - 1px) {
+    .timeline {
+      padding-left: $spacing-lg;
+    }
+
+    .timelineMarker {
+      left: calc(-#{$spacing-lg} - 6px);
+    }
+
+    .period {
+      margin-left: 0;
+    }
+  }
+
   .description {
     color: $text-secondary;
     margin-bottom: $spacing-md;

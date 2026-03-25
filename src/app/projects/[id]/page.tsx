@@ -33,7 +33,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     try {
       const fullPath = path.join(process.cwd(), 'src', 'data', project.readmePath);
       const rawContent = fs.readFileSync(fullPath, 'utf-8');
-      // 제목과 개요 섹션 제거하여 중복 방지
       readmeContent = formatReadmeForDetail(rawContent);
     } catch (error) {
       console.error('Failed to read README:', error);

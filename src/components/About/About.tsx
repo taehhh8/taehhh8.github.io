@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
+import { myImage } from '@/assets/_index';
 import styles from './About.module.scss';
 
 const About = () => {
@@ -10,8 +12,8 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const highlights = [
-    { number: '3+', label: '프로젝트' },
-    { number: '3+', label: '년 경력' },
+    { number: '8+', label: '프로젝트' },
+    { number: '3년 8개월', label: '년 경력' },
     { number: '10+', label: '기술 스택' },
   ];
 
@@ -64,10 +66,17 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.div
-              className={styles.imagePlaceholder}
+              className={styles.imageFrame}
               whileHover={{ scale: 1.05, rotate: 2 }}
             >
-              <span>프로필 이미지</span>
+              <Image
+                src={myImage}
+                alt="프로필 사진"
+                fill
+                className={styles.profilePhoto}
+                sizes="(max-width: 1024px) 90vw, 400px"
+                priority
+              />
             </motion.div>
           </motion.div>
         </div>

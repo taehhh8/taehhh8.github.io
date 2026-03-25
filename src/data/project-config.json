@@ -3,7 +3,7 @@
     "id": 4,
     "readmePath": "projects/kaiaMiniapp.md",
     "image": "/kaia-miniapp.jpg",
-    "link": "#",
+    "link": "https://line.khans.io",
     "github": "#",
     "featured": true
   },
@@ -11,7 +11,7 @@
     "id": 3,
     "readmePath": "projects/TMAMusikhan.md",
     "image": "/tma-musikhan.jpg",
-    "link": "#",
+    "link": "https://t.me/musikhan_bot/MusiKhan",
     "github": "#",
     "featured": true
   },
@@ -19,7 +19,7 @@
     "id": 2,
     "readmePath": "projects/staking-project.md",
     "image": "/staking-project.jpg",
-    "link": "#",
+    "link": "https://staking.khans.io",
     "github": "#",
     "featured": true
   },
@@ -27,7 +27,7 @@
     "id": 1,
     "readmePath": "projects/musikhan-sales.md",
     "image": "/musikhan-sales.jpg",
-    "link": "#",
+    "link": "https://launchpad.khans.io",
     "github": "#",
     "featured": true
   },
@@ -35,7 +35,7 @@
     "id": 6,
     "readmePath": "projects/BeatswapProject.md",
     "image": "/beatswap-project.jpg",
-    "link": "#",
+    "link": "https://beatswap.io",
     "github": "#",
     "featured": true
   },
@@ -43,7 +43,7 @@
     "id": 5,
     "readmePath": "projects/scanICP-project.md",
     "image": "/icp-scan.jpg",
-    "link": "#",
+    "link": "https://scan.beatswap.io",
     "github": "#",
     "featured": true
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "readmePath": "projects/AugTokenProject.md",
     "image": "/aug-token.jpg",
-    "link": "#",
+    "link": "https://auggold.com",
     "github": "#",
     "featured": true
   },
@@ -60,7 +60,7 @@
     "readmePath": "projects/sajuViewerProject.md",
     "image": "/saju-viewer.jpg",
     "link": "#",
-    "github": "#",
+    "github": "https://github.com/taehhh8/SajuViewer",
     "featured": true
   }
 ]

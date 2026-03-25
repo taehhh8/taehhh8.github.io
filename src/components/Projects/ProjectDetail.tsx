@@ -113,8 +113,8 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
           transition={{ duration: 0.6 }}
         >
           <h1 className={styles.title}>{project.title}</h1>
-          <p className={styles.description}>{project.description}</p>
-          
+          {/* 설명·기술 스택은 README 본문에만 표시 (목록 카드에서는 parseReadme 요약 유지) */}
+
           {/* 링크 버튼 */}
           <div className={styles.links}>
             {project.link && project.link !== '#' && (
@@ -144,39 +144,13 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
           </div>
         </motion.div>
 
-        {/* 기술 스택 */}
-        {project.technologies.length > 0 && (
-          <motion.div
-            className={styles.technologies}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className={styles.sectionTitle}>기술 스택</h2>
-            <div className={styles.techList}>
-              {project.technologies.map((tech, index) => (
-                <motion.span
-                  key={index}
-                  className={styles.techTag}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-        )}
-
         {/* 스크린샷 갤러리 */}
         {shots.length > 0 && (
           <motion.section
             className={styles.screenshots}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             aria-label="프로젝트 스크린샷"
           >
             <h2 className={styles.sectionTitle}>스크린샷</h2>
@@ -308,16 +282,15 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
           </div>
         )}
 
-        {/* README 본문 (개요·기술 스택은 formatReadmeForDetail에서 제외) */}
+        {/* README 전체 (목차·메타·개요·기술 스택 등은 MD 한 번만 렌더) */}
         {readmeContent && (
           <motion.section
             className={styles.readmeSection}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             aria-label="프로젝트 상세 설명"
           >
-            <h2 className={styles.readmeSectionTitle}>상세 내용</h2>
             <div className={styles.readmeContent}>
               <ReactMarkdown components={markdownComponents}>{readmeContent}</ReactMarkdown>
             </div>

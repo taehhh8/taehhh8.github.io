@@ -66,6 +66,8 @@ import AUGDepositPage from "./AUGToken/AUGDepositPage.png";
 import AUGMobileMainPage from "./AUGToken/AUGMobileMainPage.png";
 import AUGMobileDepositPage from "./AUGToken/AUGMobileDepositPage.png";
 
+import myImage from "./MyImage.jpg";
+
 export {
   musikhanSalesMainPage,
   musikhanSales2,
@@ -119,4 +121,5 @@ export {
   AUGDepositPage,
   AUGMobileMainPage,
   AUGMobileDepositPage,
+  myImage,
 };

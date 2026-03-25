@@ -1,6 +1,10 @@
 # Internet Computer 블록체인 익스플로러 — Frontend
 
-## 📋 프로젝트 개요
+> **프로젝트 기간**: [2025.09~2025.11]  
+> **역할**: Frontend Developer (단독 개발)  
+> **프로젝트 유형**: Internet Computer 익스플로러 · 멀티체인 데이터 UI
+
+## 프로젝트 개요
 
 ### Introduction
 
@@ -10,12 +14,9 @@
 
 **Internet Computer(IC)** 네트워크의 토큰·주소·트랜잭션을 조회하고, **SNS** 거버넌스 정보를 탐색할 수 있는 웹 익스플로러입니다. BeatSwap 등 외부 API와 연동해 IPL 트랜잭션 상세를 보여 주고, **BSC** 상 ERC-20(BTX) 홀더·락/언락 구성을 **viem**으로 집계하는 화면 등 멀티 체인·멀티 소스 데이터를 한 UI에서 다룹니다.
 
-**개발 기간**: [기간 입력]  
-**역할**: Frontend Developer (주도 개발)
-
 ---
 
-## 🛠 기술 스택
+## 기술 스택
 
 ### Core
 
@@ -59,7 +60,7 @@
 
 ---
 
-## ✨ 주요 기능
+## 주요 기능
 
 ### 1. 토큰 · 주소 · 트랜잭션
 
@@ -93,7 +94,7 @@
 
 ---
 
-## 🏗 프로젝트 구조
+## 프로젝트 구조
 
 ```
 src/
@@ -120,7 +121,7 @@ public/
 
 ---
 
-## 🎯 주요 구현 내용
+## 주요 구현 내용
 
 ### 1. 라우팅과 로딩 UX
 
@@ -145,13 +146,18 @@ public/
 - MUI 그리드·테이블·테마, 반응형·다크모드
 - BTX 페이지 별도 레이아웃 분기 (`App.tsx`)
 
-### 6. 성능·품질
+---
 
-- 라우트 스플리팅, SWR 캐싱, ESLint·Prettier·TypeScript
+## 성능 최적화
+
+- **React.lazy** + **Suspense**로 라우트 단위 코드 스플리팅
+- **SWR** 캐싱으로 중복 요청 완화
+- **React.memo**·**useMemo** 등으로 불필요한 리렌더 완화
+- ESLint·Prettier·TypeScript로 코드 품질 유지
 
 ---
 
-## 🎨 UI/UX 특징
+## UI/UX 특징
 
 - **MUI 기반** 일관된 디자인 시스템과 테마 전환
 - **목록·상세·차트**로 스캔 탐색 플로우
@@ -160,7 +166,7 @@ public/
 
 ---
 
-## 🚀 개발 환경 설정
+## 개발·실행 환경
 
 ```bash
 npm install
@@ -176,14 +182,14 @@ npm run preview
 
 ---
 
-## 📱 지원 플랫폼
+## 지원 플랫폼
 
 - **모던 브라우저** (Chrome, Safari, Firefox 등)
 - **반응형** 레이아웃 (데스크톱·태블릿·모바일)
 
 ---
 
-## 🔧 주요 기술적 도전과제 및 해결
+## 기술적 도전과 해결
 
 ### 1. IC와 EVM 데이터 모델 혼재
 
@@ -207,15 +213,7 @@ npm run preview
 
 ---
 
-## 📊 성능 최적화
-
-- **React.lazy** + **Suspense**로 라우트 단위 코드 스플리팅
-- **SWR** 캐싱으로 중복 요청 완화
-- **React.memo**·**useMemo** 등으로 불필요한 리렌더 완화
-
----
-
-## 🔐 보안 고려사항
+## 보안 고려사항
 
 - 읽기 전용 **view** 호출 위주; 서명 필요 작업은 지갑·화이트리스트 패턴(`actor` 타입 선언)에 맞춤
 - 외부 API 응답 검증·실패 시 UI 폴백
@@ -223,7 +221,7 @@ npm run preview
 
 ---
 
-## 📚 학습 및 성장
+## 학습 및 성장
 
 - **Vite + React** SPA 아키텍처와 프로덕션 빌드
 - **@dfinity** Agent/Actor/Candid 기반 **IC** 클라이언트 개발
@@ -233,15 +231,3 @@ npm run preview
 - 블록체인 **익스플로어 도메인**(주소·토큰·거버넌스) 이해
 
 ---
-
-## 🎓 기술 스택 요약
-
-| 카테고리 | 기술 |
-|---------|------|
-| **Build** | Vite 5, TypeScript 5 |
-| **UI** | React 18, MUI 5, Sass, Emotion |
-| **Routing** | React Router DOM 5 |
-| **IC** | @dfinity/agent, Candid, NNS/Ledger 패키지 |
-| **EVM** | viem 2.x (BSC 읽기 전용) |
-| **Data** | SWR, Axios, fetch 훅 |
-| **Charts** | Highcharts, D3.js |

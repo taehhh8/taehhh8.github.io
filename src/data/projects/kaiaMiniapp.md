@@ -1,6 +1,11 @@
 # Kaia LINE DeFi · 리워드 플랫폼 — Frontend
 
-## 📋 프로젝트 개요
+> **프로젝트 기간**: [2025.5~2025.8]  
+> **역할**: Frontend Developer (단독 개발)  
+> **프로젝트 유형**: LINE Mini App · Kaia Web3 리워드 플랫폼  
+> **배포**: [line.khans.io](https://line.khans.io) · [kaia.khans.io](https://kaia.khans.io)
+
+## 프로젝트 개요
 
 ### Introduction
 
@@ -10,12 +15,9 @@
 
 **LINE** 환경과 **Kaia** 네트워크를 연결하는 웹·미니앱 프론트엔드입니다. 사용자는 지갑 연결 후 스테이킹·유동성 공급·리워드 클레임·친구 초대·소셜 태스크·뮤직(NFT) 관련 기능을 이용할 수 있습니다. 백엔드 API와 블록체인(`ethers` + Kaia 확장)을 함께 사용하며, **Redux Toolkit**으로 도메인별 상태를 관리합니다.
 
-**개발 기간**: [기간 입력]  
-**역할**: Frontend Developer (주도 개발)
-
 ---
 
-## 🛠 기술 스택
+## 기술 스택
 
 ### Core
 
@@ -90,7 +92,7 @@
 
 ---
 
-## ✨ 주요 기능
+## 주요 기능
 
 ### 1. 스테이킹 · 유동성
 
@@ -130,7 +132,7 @@
 
 ---
 
-## 🏗 프로젝트 구조
+## 프로젝트 구조
 
 실제 프론트엔드 루트는 **`line-frontend/`** 입니다.
 
@@ -168,7 +170,7 @@ line-frontend/
 
 ---
 
-## 🎯 주요 구현 내용
+## 주요 구현 내용
 
 ### 1. 상태 관리 아키텍처
 
@@ -200,7 +202,16 @@ line-frontend/
 
 ---
 
-## 🎨 UI/UX 특징
+## 성능 최적화
+
+- **Next.js** 기반 라우트·번들 구조 최적화
+- **동적 import**·코드 분할 (필요 시)
+- **React.memo** / **useMemo** 등으로 불필요한 리렌더 완화
+- 이미지·정적 자산 로딩 전략
+
+---
+
+## UI/UX 특징
 
 - **다크 테마** 기반과 동일한 **디자인 시스템**을 Telegram Mini App 제품군과 공유하는 경우, 화면 간 시각적 일관성 유지
 - 스테이킹·유동성·리워드 등 **금액·상태가 많은 화면**에서 로딩·에러·성공 피드백 구분
@@ -209,7 +220,7 @@ line-frontend/
 
 ---
 
-## 🚀 개발 환경 설정
+## 개발·실행 환경
 
 ```bash
 # 의존성 설치 (프론트엔드 루트)
@@ -234,7 +245,7 @@ npm start
 
 ---
 
-## 📱 지원 플랫폼
+## 지원 플랫폼
 
 - **LINE Mini App / LIFF** (주 타겟)
 - **모바일 웹 브라우저** (Chrome, Safari 등)
@@ -242,7 +253,7 @@ npm start
 
 ---
 
-## 🔧 주요 기술적 도전과제 및 해결
+## 기술적 도전과 해결
 
 ### 1. LINE vs 외부 브라우저
 
@@ -266,16 +277,7 @@ npm start
 
 ---
 
-## 📊 성능 최적화
-
-- **Next.js** 기반 라우트·번들 구조 최적화
-- **동적 import**·코드 분할 (필요 시)
-- **React.memo** / **useMemo** 등으로 불필요한 리렌더 완화
-- 이미지·정적 자산 로딩 전략
-
----
-
-## 🔐 보안 고려사항
+## 보안 고려사항
 
 - 서명 기반 로그인·**JWT** 검증 흐름
 - JWT 저장 위치·쿠키 옵션 검토
@@ -284,7 +286,7 @@ npm start
 
 ---
 
-## 📚 학습 및 성장
+## 학습 및 성장
 
 - **Web3 개발**: ethers v6 + Kaia 확장 Provider 실무 적용
 - **LINE LIFF·Dapp Portal SDK** 연동
@@ -294,16 +296,3 @@ npm start
 - **비동기 처리**: 스테이킹·트랜잭션·API 연동 플로우
 
 ---
-
-## 🎓 기술 스택 요약
-
-| 카테고리 | 기술 |
-|---------|------|
-| **Frontend Framework** | Next.js 15, React 19, TypeScript |
-| **State Management** | Redux Toolkit |
-| **Routing / i18n** | App Router, next-intl |
-| **Styling** | Sass/CSS Modules, Bootstrap, Tailwind, styled-components |
-| **Web3** | ethers v6, Kaia ethers-ext, Dapp Portal SDK |
-| **LINE** | LIFF, @linenext/dapp-portal-sdk |
-| **HTTP Client** | Axios |
-| **UI Libraries** | SweetAlert2, react-toastify |

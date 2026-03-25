@@ -48,7 +48,12 @@
 
 // Section spacing
 @mixin section {
-  padding: $spacing-2xl 0;
+  // Mobile-first: reduce vertical padding for small screens
+  padding: $spacing-xl 0;
+
+  @include respond-to(md) {
+    padding: $spacing-2xl 0;
+  }
 
   @include respond-to(lg) {
     padding: 5rem 0;

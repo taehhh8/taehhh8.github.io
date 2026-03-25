@@ -1,7 +1,7 @@
 # DeFi/RWA 플랫폼 프론트엔드 개발 포트폴리오 (BeatSwap)
 
-> **프로젝트 기간**: [기간 입력]  
-> **역할**: Frontend Developer (기획/구현 주도, 백엔드 협업)  
+> **프로젝트 기간**: [2025.09~개발중]  
+> **역할**: Frontend Developer (단독 개발)  
 > **프로젝트 유형**: Web3 기반 DeFi + IP-RWA 서비스
 
 ## 프로젝트 개요
@@ -53,7 +53,7 @@ BeatSwap은 음악 IP를 RWA(Real World Asset) 형태로 온체인에서 조회/
 
 ---
 
-## 주요 구현 기능
+## 주요 기능
 
 ### 1) Oracle 탐색 경험 구축
 
@@ -86,7 +86,7 @@ BeatSwap은 음악 IP를 RWA(Real World Asset) 형태로 온체인에서 조회/
 
 ---
 
-## 프로젝트 구조 (요약)
+## 프로젝트 구조
 
 ```text
 beatswap-io/
@@ -111,7 +111,7 @@ beatswap-io/
 
 ---
 
-## 아키텍처/개발 포인트
+## 주요 구현 내용
 
 ### 상태 관리 전략
 
@@ -130,6 +130,33 @@ beatswap-io/
 - App Router 기반 페이지 단위 분리
 - feature 기반 폴더링으로 코드 탐색성 향상
 - 공통 UI/훅 재사용으로 중복 로직 최소화
+
+---
+
+## UI/UX 특징
+
+- Oracle·대시보드 중심의 **데이터 탐색·피드백**에 맞춘 로딩/에러/성공 상태 표현
+- 토스트·모달 기반 트랜잭션·인증 피드백
+
+---
+
+## 개발·실행 환경
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run start
+```
+
+필요 환경 변수는 `.env.local`에 프로젝트 정책에 맞춰 설정합니다.
+
+---
+
+## 지원 플랫폼
+
+- **모던 웹 브라우저** (Chrome, Safari, Firefox 등)
+- **반응형** 레이아웃
 
 ---
 
@@ -152,7 +179,7 @@ beatswap-io/
 
 ---
 
-## 성과 및 임팩트
+## 성과 및 기여
 
 - Web3 서비스에서 필요한 **지갑 연결-인증-데이터 조회-트랜잭션 피드백**의 핵심 사용자 여정을 일관되게 구현
 - Oracle/대시보드 중심의 데이터 탐색 화면을 안정적으로 제공해 서비스 활용성을 개선
@@ -160,22 +187,9 @@ beatswap-io/
 
 ---
 
-## 내가 강조할 역량 (이직 포인트)
+## 포트폴리오 강조 포인트
 
 - **Web3 Frontend 실전 경험**: Ethers/Wagmi/Viem 기반 지갑/컨트랙트 연동
 - **대규모 상태 관리 경험**: Redux Toolkit + React Query 하이브리드 설계
 - **서비스 운영 관점 개발**: 로딩/오류/사용자 피드백/재조회 전략
 - **도메인 구조화 역량**: feature 중심 아키텍처로 확장성과 유지보수성 확보
-
----
-
-## 실행 방법 (요약)
-
-```bash
-npm install
-npm run dev
-npm run build
-npm run start
-```
-
-필요 환경 변수는 `.env.local`에 프로젝트 정책에 맞춰 설정합니다.
