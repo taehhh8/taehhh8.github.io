@@ -44,6 +44,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+
+    [data-theme="dark"] & {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
   }
 
   .imageContainer {
@@ -61,6 +69,17 @@
       font-size: 1.5rem;
       font-weight: 600;
       transition: transform $transition-slow;
+    }
+
+    .projectThumb {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform $transition-slow;
+    }
+
+    .projectThumbImage {
+      object-fit: cover;
     }
 
     .overlay {
@@ -81,6 +100,10 @@
         transform: scale(1.1);
       }
 
+      .projectThumb {
+        transform: scale(1.06);
+      }
+
       .overlay {
         opacity: 1;
       }
@@ -94,6 +117,10 @@
     border-radius: $radius-md;
     font-weight: 600;
     transition: all $transition-base;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 
     &:hover {
       background: $primary-color;
@@ -104,6 +131,7 @@
 
   .content {
     padding: $spacing-lg;
+    position: relative;
   }
 
   .projectTitle {
@@ -116,6 +144,19 @@
     color: $text-secondary;
     margin-bottom: $spacing-md;
     line-height: 1.6;
+  }
+
+  .viewMore {
+    margin-top: $spacing-sm;
+    font-size: 0.9rem;
+    color: $primary-color;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity $transition-base;
+
+    .project:hover & {
+      opacity: 1;
+    }
   }
 
   .technologies {

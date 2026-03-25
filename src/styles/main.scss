@@ -17,11 +17,31 @@ body {
   color: $text-primary;
   background-color: $light-bg;
   overflow-x: hidden;
+  transition: background-color $transition-base, color $transition-base;
 }
 
 // Dark mode support
-@media (prefers-color-scheme: dark) {
+[data-theme="dark"] {
   body {
+    background-color: $dark-bg;
+    color: $dark-text-primary;
+  }
+
+  p {
+    color: $dark-text-secondary;
+  }
+
+  a {
+    color: lighten($primary-color, 10%);
+
+    &:hover {
+      color: lighten($secondary-color, 10%);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) {
     background-color: $dark-bg;
     color: $dark-text-primary;
   }

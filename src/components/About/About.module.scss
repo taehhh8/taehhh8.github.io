@@ -4,6 +4,24 @@
 .about {
   @include section;
   background: $light-surface;
+  position: relative;
+  overflow: hidden;
+
+  [data-theme="dark"] & {
+    background: $dark-surface;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05), transparent 50%);
+    pointer-events: none;
+  }
 
   .container {
     @include container;
@@ -50,11 +68,18 @@
     flex-direction: column;
     align-items: center;
     padding: $spacing-md;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     border-radius: $radius-lg;
     box-shadow: $shadow-sm;
+    border: 1px solid rgba(99, 102, 241, 0.1);
     min-width: 120px;
     transition: transform $transition-base;
+
+    [data-theme="dark"] & {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
 
     &:hover {
       transform: translateY(-4px);
@@ -76,17 +101,40 @@
   .image {
     @include flex-center;
 
-    .imagePlaceholder {
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, $primary-color, $secondary-color);
-      border-radius: $radius-xl;
-      @include flex-center;
-      color: white;
-      font-size: 1.25rem;
-      font-weight: 600;
-      box-shadow: $shadow-xl;
+  .imagePlaceholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, $primary-color, $secondary-color, $accent-color);
+    background-size: 200% 200%;
+    border-radius: $radius-xl;
+    @include flex-center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shine 3s infinite;
     }
+  }
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
   }
 }

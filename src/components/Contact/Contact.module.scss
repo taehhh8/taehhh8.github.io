@@ -43,11 +43,20 @@
     gap: $spacing-md;
     text-decoration: none;
     color: inherit;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
     transition: all $transition-base;
+
+    [data-theme="dark"] & {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
 
     &:hover {
       transform: translateY(-4px);
       box-shadow: $shadow-xl;
+      border-color: rgba(99, 102, 241, 0.3);
     }
   }
 

@@ -1,44 +1,101 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './Skills.module.scss';
 
 const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML/CSS', 'SASS'],
+      skills: ['React', 'Redux Toolkit', 'Redux', 'Next.js', 'TypeScript', 'JavaScript', 'HTML/CSS', 'SASS'],
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'Express', 'Python', 'RESTful API'],
+      skills: ['Node.js', 'Express', 'typescript', 'javascript', 'RESTful API'],
     },
     {
       title: 'Tools & Others',
-      skills: ['Git', 'GitHub', 'VS Code', 'Figma', 'MongoDB', 'PostgreSQL'],
+      skills: ['Git', 'GitHub', 'VS Code', 'Figma', 'Cursor', 'PostgreSQL'],
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section id="skills" className={styles.skills}>
+    <section id="skills" className={styles.skills} ref={ref}>
       <div className={styles.container}>
-        <h2 className={styles.title}>
+        <motion.h2
+          className={styles.title}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.gradient}>Skills</span> & Technologies
-        </h2>
-        <p className={styles.subtitle}>
+        </motion.h2>
+        <motion.p
+          className={styles.subtitle}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           다양한 기술 스택을 활용하여 프로젝트를 구현합니다.
-        </p>
-        <div className={styles.categories}>
+        </motion.p>
+        <motion.div
+          className={styles.categories}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {skillCategories.map((category, index) => (
-            <div key={index} className={styles.category}>
+            <motion.div
+              key={index}
+              className={styles.category}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -5 }}
+            >
               <h3 className={styles.categoryTitle}>{category.title}</h3>
               <div className={styles.skillList}>
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className={styles.skill}>
+                  <motion.div
+                    key={skillIndex}
+                    className={styles.skill}
+                    whileHover={{ scale: 1.1, rotate: 2 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: skillIndex * 0.1 }}
+                  >
                     {skill}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
