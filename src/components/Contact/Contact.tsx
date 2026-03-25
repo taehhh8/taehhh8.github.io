@@ -101,7 +101,7 @@ const Contact = () => {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <p>© 2026 Taehyun Park Portfolio. All rights reserved.</p>
+          <p>© 2026 Taehyun Park Portfolio. All rights reserved..</p>
         </motion.div>
       </div>
     </section>
