@@ -52,10 +52,13 @@ const Hero = () => {
                 ease: 'linear',
               }}
             >
-              개발자
+              박태현
             </motion.span>
             <span className={styles.name}>입니다</span>
           </motion.h1>
+          <motion.p className={styles.role} variants={itemVariants}>
+            Web3 Frontend Developer
+          </motion.p>
           <motion.p className={styles.description} variants={itemVariants}>
             창의적이고 사용자 중심의 웹 애플리케이션을 만드는 것을 좋아합니다.
             <br />

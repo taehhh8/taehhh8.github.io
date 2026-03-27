@@ -78,6 +78,19 @@
   }
   }
 
+  .role {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+    letter-spacing: 0.05em;
+    animation: fadeInUp 0.9s ease 0.3s both;
+
+    @include respond-to(md) {
+      font-size: 1.5rem;
+    }
+  }
+
   .description {
     font-size: 1.125rem;
     line-height: 1.8;

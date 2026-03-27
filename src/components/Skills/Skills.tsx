@@ -9,15 +9,19 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      skills: ['React', 'Redux Toolkit', 'Redux', 'Next.js', 'TypeScript', 'JavaScript', 'HTML/CSS', 'SASS'],
+      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Redux Toolkit', 'React Query', 'HTML/CSS', 'SASS'],
+    },
+    {
+      title: 'Web3',
+      skills: ['ethers.js', 'wagmi', 'viem', 'Reown AppKit', 'Kaia', 'TON Connect', 'LIFF SDK'],
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'Express', 'typescript', 'javascript', 'RESTful API'],
+      skills: ['Node.js', 'Express', 'TypeScript', 'Supabase', 'RESTful API'],
     },
     {
       title: 'Tools & Others',
-      skills: ['Git', 'GitHub', 'VS Code', 'Figma', 'Cursor', 'PostgreSQL'],
+      skills: ['Git', 'GitHub', 'VS Code', 'Cursor', 'Figma', 'PostgreSQL'],
     },
   ];
 

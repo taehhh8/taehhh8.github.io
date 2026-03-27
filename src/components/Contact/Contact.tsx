@@ -20,6 +20,12 @@ const Contact = () => {
       link: 'https://github.com/taehhh8',
     },
     {
+      icon: '💼',
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/taehhh8',
+      link: 'https://linkedin.com/in/taehhh8',
+    },
+    {
       icon: '📱',
       label: 'Phone',
       value: '+82 10-4385-8534',

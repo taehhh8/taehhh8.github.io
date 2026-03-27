@@ -36,12 +36,13 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p>
-              안녕하세요! 저는 웹 개발에 열정을 가진 개발자입니다.
-              사용자 경험을 최우선으로 생각하며, 깔끔하고 효율적인 코드를 작성하는 것을 좋아합니다.
+              <strong>3년 8개월</strong> Web3 프론트엔드 경력의 개발자입니다.
+              DeFi 스테이킹 플랫폼, 텔레그램/LINE 미니앱, 블록체인 익스플로러 등
+              다양한 Web3 서비스를 단독 개발해왔습니다.
             </p>
             <p>
-              최신 기술 트렌드를 학습하고 적용하는 것을 즐기며,
-              지속적인 성장과 개선을 추구합니다.
+              사용자 경험과 온체인 트랜잭션 UX를 최우선으로 생각하며,
+              Next.js · TypeScript · ethers.js 기반의 깔끔하고 유지보수하기 좋은 코드를 작성합니다.
             </p>
             <div className={styles.highlights}>
               {highlights.map((item, index) => (
