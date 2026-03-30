@@ -19,12 +19,12 @@ const Contact = () => {
       value: 'github.com/taehhh8',
       link: 'https://github.com/taehhh8',
     },
-    {
-      icon: '💼',
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/taehhh8',
-      link: 'https://linkedin.com/in/taehhh8',
-    },
+    // {
+    //   icon: '💼',
+    //   label: 'LinkedIn',
+    //   value: 'linkedin.com/in/taehhh8',
+    //   link: 'https://linkedin.com/in/taehhh8',
+    // },
     {
       icon: '📱',
       label: 'Phone',
