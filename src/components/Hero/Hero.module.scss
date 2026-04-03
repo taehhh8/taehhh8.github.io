@@ -16,218 +16,400 @@
 
   .content {
     text-align: center;
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
   }
 
-  .greeting {
-    font-size: 1.25rem;
-    color: $text-secondary;
-    margin-bottom: $spacing-md;
-    animation: fadeInUp 0.6s ease;
+  // ─── Badge ──────────────────────────────────────────────────────
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $primary-color;
+    background: linear-gradient(135deg, rgba($primary-color, 0.08), rgba($accent-color, 0.08));
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-full;
+    border: 1px solid rgba($primary-color, 0.15);
+    margin-bottom: $spacing-xl;
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.02em;
+
+    [data-theme="dark"] & {
+      color: $dark-primary-color;
+      background: linear-gradient(135deg, rgba($dark-primary-color, 0.12), rgba($dark-accent-color, 0.08));
+      border-color: rgba($dark-primary-color, 0.2);
+    }
   }
 
+  .badgeDot {
+    width: 6px;
+    height: 6px;
+    background: $success-color;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+
+    [data-theme="dark"] & {
+      background: #22c55e;
+    }
+  }
+
+  // ─── Title ──────────────────────────────────────────────────────
   .title {
     margin-bottom: $spacing-lg;
-    animation: fadeInUp 0.8s ease 0.2s both;
+    line-height: 1.15;
+
+    .greeting {
+      display: block;
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      font-weight: 500;
+      color: $text-secondary;
+      margin-bottom: $spacing-sm;
+      letter-spacing: -0.01em;
+
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
+    }
 
     .name {
       display: block;
-      font-size: clamp(1.75rem, 6vw, 2rem);
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-weight: 800;
+      background: linear-gradient(
+        120deg,
+        $primary-color 0%,
+        $secondary-color 40%,
+        $accent-color 80%,
+        $primary-color 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: $spacing-md 0;
+
+      [data-theme="dark"] & {
+        background: linear-gradient(
+          120deg,
+          $dark-primary-color 0%,
+          $dark-secondary-color 40%,
+          $dark-accent-color 80%,
+          $dark-primary-color 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
 
       @include respond-to(md) {
-        font-size: 3rem;
-      }
-
-      @include respond-to(lg) {
-        font-size: 3.5rem;
+        margin: $spacing-lg 0;
       }
     }
 
-  .gradient {
-    display: block;
-    background: linear-gradient(135deg, $primary-color, $secondary-color, $accent-color, $primary-color);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: clamp(2.25rem, 10vw, 3rem);
-    font-weight: 800;
-    position: relative;
+    .subtitle {
+      display: block;
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      font-weight: 500;
+      color: $text-secondary;
+      letter-spacing: -0.01em;
 
-    @include respond-to(md) {
-      font-size: 4rem;
-    }
-
-    @include respond-to(lg) {
-      font-size: 5rem;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, $primary-color, $secondary-color, $accent-color);
-      filter: blur(20px);
-      opacity: 0.5;
-      z-index: -1;
-    }
-  }
-  }
-
-  .role {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: $text-secondary;
-    margin-bottom: $spacing-md;
-    letter-spacing: 0.05em;
-    animation: fadeInUp 0.9s ease 0.3s both;
-
-    @include respond-to(md) {
-      font-size: 1.5rem;
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
     }
   }
 
-  .description {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: $text-secondary;
+  // ─── Role ───────────────────────────────────────────────────────
+  .roleWrapper {
     margin-bottom: $spacing-xl;
-    animation: fadeInUp 1s ease 0.4s both;
+  }
 
-    @include respond-to(md) {
-      font-size: 1.25rem;
+  .roleContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-lg;
+    background: rgba($primary-color, 0.04);
+    border-radius: $radius-lg;
+    border: 1px solid rgba($primary-color, 0.1);
+
+    [data-theme="dark"] & {
+      background: rgba($dark-primary-color, 0.08);
+      border-color: rgba($dark-primary-color, 0.15);
     }
   }
 
+  .roleLabel {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-primary;
+    letter-spacing: 0.02em;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .roleSeparator {
+    color: $text-light;
+    font-weight: 300;
+
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
+  }
+
+  // ─── Description ────────────────────────────────────────────────
+  .description {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: $text-secondary;
+    margin-bottom: $spacing-2xl;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+
+    strong {
+      color: $text-primary;
+      font-weight: 600;
+
+      [data-theme="dark"] & {
+        color: $dark-text-primary;
+      }
+    }
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+
+    @include respond-to(md) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .desktopBreak {
+    display: none;
+
+    @include respond-to(md) {
+      display: block;
+    }
+  }
+
+  // ─── Stats ──────────────────────────────────────────────────────
+  .stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+    padding: $spacing-lg;
+    background: $light-surface-elevated;
+    border-radius: $radius-xl;
+    border: 1px solid $border-color;
+
+    [data-theme="dark"] & {
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
+    }
+
+    @include respond-to(md) {
+      gap: $spacing-2xl;
+      padding: $spacing-xl $spacing-2xl;
+    }
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-2xs;
+  }
+
+  .statNumber {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $primary-color;
+    font-family: $font-display;
+    line-height: 1;
+
+    [data-theme="dark"] & {
+      color: $dark-primary-color;
+    }
+
+    @include respond-to(md) {
+      font-size: 2rem;
+    }
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
+  }
+
+  .statDivider {
+    width: 1px;
+    height: 32px;
+    background: $border-color;
+
+    [data-theme="dark"] & {
+      background: $dark-border-color;
+    }
+  }
+
+  // ─── CTA ────────────────────────────────────────────────────────
   .cta {
     display: flex;
     gap: $spacing-md;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: $spacing-2xl;
-    animation: fadeInUp 1.2s ease 0.6s both;
+    margin-bottom: $spacing-3xl;
   }
 
   .primaryBtn {
     @include button-primary;
-    font-size: 1.125rem;
     padding: $spacing-md $spacing-xl;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+
+    svg {
+      transition: transform $transition-base;
+    }
+
+    &:hover svg {
+      transform: translateY(2px);
+    }
+
+    [data-theme="dark"] & {
+      box-shadow: 0 4px 12px rgba($dark-primary-color, 0.15);
+    }
   }
 
   .secondaryBtn {
     @include button-secondary;
-    font-size: 1.125rem;
     padding: $spacing-md $spacing-xl;
+    font-size: 1rem;
+
+    svg {
+      transition: transform $transition-base;
+    }
+
+    &:hover svg {
+      transform: translate(2px, -2px);
+    }
   }
 
+  // ─── Scroll Indicator ───────────────────────────────────────────
   .scrollIndicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: $spacing-xs;
-    color: $text-secondary;
-    font-size: 0.875rem;
-    animation: fadeInUp 1.4s ease 0.8s both;
+    color: $text-light;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 
-    .arrow {
-      width: 20px;
-      height: 20px;
-      border-right: 2px solid $primary-color;
-      border-bottom: 2px solid $primary-color;
-      transform: rotate(45deg);
-      animation: bounce 2s infinite;
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
+
+    svg {
+      opacity: 0.5;
     }
   }
 
+  // ─── Background ─────────────────────────────────────────────────
   .background {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 0;
     overflow: hidden;
+    pointer-events: none;
   }
 
-  .gradientCircle {
+  .gridOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba($border-color, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($border-color, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 70%);
+
+    [data-theme="dark"] & {
+      background-image: 
+        linear-gradient(rgba($dark-border-color, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba($dark-border-color, 0.4) 1px, transparent 1px);
+    }
+
+    @include respond-to(md) {
+      background-size: 80px 80px;
+    }
+  }
+
+  .gradientBlur {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.4;
+    opacity: 0.3;
     animation: float 20s infinite ease-in-out;
 
-    &:nth-child(1) {
-      width: 600px;
-      height: 600px;
-      background: linear-gradient(135deg, $primary-color, $secondary-color);
-      top: -300px;
-      right: -300px;
-      animation-delay: 0s;
+    [data-theme="dark"] & {
+      opacity: 0.15;
     }
 
     &:nth-child(2) {
       width: 500px;
       height: 500px;
-      background: linear-gradient(135deg, $secondary-color, $accent-color);
-      bottom: -200px;
-      left: -200px;
-      animation-delay: 5s;
+      background: radial-gradient(circle, $primary-color, transparent);
+      top: -10%;
+      right: 10%;
     }
-  }
 
-  .particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
+    &:nth-child(3) {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, $accent-color, transparent);
+      bottom: 0%;
+      left: 5%;
+      animation-delay: -8s;
+      animation-duration: 25s;
+    }
 
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: $primary-color;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: particleFloat 15s infinite ease-in-out;
-
-    @for $i from 1 through 50 {
-      &:nth-child(#{$i}) {
-        left: random(100) * 1%;
-        top: random(100) * 1%;
-        animation-delay: random(15) * 0.1s;
-        animation-duration: (10 + random(10)) * 1s;
-      }
+    &:nth-child(4) {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, $secondary-color, transparent);
+      top: 40%;
+      right: -5%;
+      animation-delay: -16s;
+      animation-duration: 30s;
     }
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
+// ─── Animations ─────────────────────────────────────────────────
+
+@keyframes pulse {
+  0%, 100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0) rotate(45deg);
-  }
-  40% {
-    transform: translateY(-10px) rotate(45deg);
-  }
-  60% {
-    transform: translateY(-5px) rotate(45deg);
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
   }
 }
 
@@ -236,26 +418,9 @@
     transform: translate(0, 0) scale(1);
   }
   33% {
-    transform: translate(30px, -30px) scale(1.1);
+    transform: translate(40px, -40px) scale(1.1);
   }
   66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-@keyframes particleFloat {
-  0% {
-    transform: translateY(0) translateX(0) scale(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(50px) scale(0);
-    opacity: 0;
+    transform: translate(-30px, 30px) scale(0.9);
   }
 }

@@ -2,9 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import Image from 'next/image';
 import { useRef } from 'react';
-import { myImage } from '@/assets/_index';
 import styles from './About.module.scss';
 
 const About = () => {
@@ -12,74 +10,166 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const highlights = [
-    { number: '8+', label: '프로젝트' },
-    { number: '3년 8개월', label: '년 경력' },
-    { number: '10+', label: '기술 스택' },
+    { 
+      icon: '🚀', 
+      number: '8+', 
+      label: 'Projects',
+      description: 'Web3 프로젝트'
+    },
+    { 
+      icon: '⏱️', 
+      number: '3.8y', 
+      label: 'Experience',
+      description: '실무 경력'
+    },
+    { 
+      icon: '⚡', 
+      number: '10+', 
+      label: 'Skills',
+      description: '핵심 기술'
+    },
+  ];
+
+  const expertise = [
+    { area: 'Web3 Frontend', level: 95 },
+    { area: 'React & Next.js', level: 90 },
+    { area: 'TypeScript', level: 88 },
+    { area: 'Smart Contract Integration', level: 85 },
+  ];
+
+  const achievements = [
+    {
+      title: '단독 개발',
+      description: '모든 프로젝트를 처음부터 끝까지 혼자 설계하고 구현',
+      icon: '👨‍💻'
+    },
+    {
+      title: '프로덕션 운영',
+      description: 'DeFi 플랫폼부터 미니앱까지 실제 사용자 서비스 운영',
+      icon: '🎯'
+    },
+    {
+      title: '최신 기술',
+      description: 'Next.js, TypeScript, ethers.js 등 모던 스택 활용',
+      icon: '⚙️'
+    },
   ];
 
   return (
     <section id="about" className={styles.about} ref={ref}>
       <div className={styles.container}>
-        <motion.h2
-          className={styles.title}
+        <motion.div
+          className={styles.sectionHeader}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className={styles.gradient}>About</span> Me
-        </motion.h2>
-        <div className={styles.content}>
+          <span className={styles.sectionLabel}>소개</span>
+          <h2 className={styles.title}>
+            About <span className={styles.gradient}>Me</span>
+          </h2>
+          <p className={styles.titleDescription}>
+            Web3와 프론트엔드 기술로 혁신적인 서비스를 만듭니다
+          </p>
+        </motion.div>
+
+        <div className={styles.contentFull}>
           <motion.div
-            className={styles.text}
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className={styles.mainIntro}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p>
-              <strong>3년 8개월</strong> Web3 프론트엔드 경력의 개발자입니다.
+            <h3 className={styles.mainTitle}>
+              사용자 중심의 <span className={styles.highlight}>Web3 경험</span>을 설계합니다
+            </h3>
+            <p className={styles.mainDescription}>
+              <strong className={styles.highlight}>3년 8개월</strong>간 Web3 프론트엔드 개발자로서 
               DeFi 스테이킹 플랫폼, 텔레그램/LINE 미니앱, 블록체인 익스플로러 등
-              다양한 Web3 서비스를 단독 개발해왔습니다.
-            </p>
-            <p>
+              <strong className={styles.highlight}> 8개 이상의 프로젝트</strong>를 단독 개발해왔습니다.
               사용자 경험과 온체인 트랜잭션 UX를 최우선으로 생각하며,
-              Next.js · TypeScript · ethers.js 기반의 깔끔하고 유지보수하기 좋은 코드를 작성합니다.
+              <strong className={styles.highlight}> Next.js · TypeScript · ethers.js</strong> 기반의 
+              깔끔하고 유지보수하기 좋은 코드를 작성합니다.
             </p>
-            <div className={styles.highlights}>
-              {highlights.map((item, index) => (
+          </motion.div>
+
+          <div className={styles.highlights}>
+            {highlights.map((item, index) => (
+              <motion.div
+                key={index}
+                className={styles.highlightCard}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+              >
+                <span className={styles.highlightIcon}>{item.icon}</span>
+                <div className={styles.highlightContent}>
+                  <span className={styles.highlightNumber}>{item.number}</span>
+                  <span className={styles.highlightLabel}>{item.label}</span>
+                  <span className={styles.highlightDescription}>{item.description}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className={styles.twoColumnGrid}>
+            <motion.div
+              className={styles.expertise}
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h4 className={styles.sectionSubtitle}>핵심 역량</h4>
+              {expertise.map((skill, index) => (
                 <motion.div
                   key={index}
-                  className={styles.highlight}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  className={styles.skillItem}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                 >
-                  <span className={styles.number}>{item.number}</span>
-                  <span className={styles.label}>{item.label}</span>
+                  <div className={styles.skillInfo}>
+                    <span className={styles.skillName}>{skill.area}</span>
+                    <span className={styles.skillLevel}>{skill.level}%</span>
+                  </div>
+                  <div className={styles.skillBar}>
+                    <motion.div
+                      className={styles.skillProgress}
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: `${skill.level}%` } : {}}
+                      transition={{ duration: 1, delay: 0.7 + index * 0.1, ease: 'easeOut' }}
+                    />
+                  </div>
                 </motion.div>
               ))}
-            </div>
-          </motion.div>
-          <motion.div
-            className={styles.image}
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <motion.div
-              className={styles.imageFrame}
-              whileHover={{ scale: 1.05, rotate: 2 }}
-            >
-              <Image
-                src={myImage}
-                alt="프로필 사진"
-                fill
-                className={styles.profilePhoto}
-                sizes="(max-width: 1024px) 90vw, 400px"
-                priority
-              />
             </motion.div>
-          </motion.div>
+
+            <motion.div
+              className={styles.achievements}
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <h4 className={styles.sectionSubtitle}>주요 성과</h4>
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={index}
+                  className={styles.achievementItem}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <span className={styles.achievementIcon}>{achievement.icon}</span>
+                  <div className={styles.achievementContent}>
+                    <h5 className={styles.achievementTitle}>{achievement.title}</h5>
+                    <p className={styles.achievementDescription}>{achievement.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

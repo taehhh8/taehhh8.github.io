@@ -7,39 +7,36 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(250, 250, 250, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   transition: all $transition-base;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid transparent;
 
   [data-theme="dark"] & {
-    background: rgba(15, 23, 42, 0.7);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+    background: rgba(9, 9, 11, 0.85);
   }
 
   &.scrolled {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border-bottom-color: rgba(0, 0, 0, 0.1);
+    border-bottom-color: $border-color;
+    box-shadow: $shadow-sm;
 
     [data-theme="dark"] & {
-      background: rgba(15, 23, 42, 0.9);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      border-bottom-color: rgba(255, 255, 255, 0.1);
+      border-bottom-color: $dark-border-color;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
   }
 
   .container {
     @include container;
     @include flex-between;
-    padding-top: $spacing-sm;
-    padding-bottom: $spacing-sm;
+    height: 64px;
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     @include gradient-text;
 
     a {
@@ -51,73 +48,98 @@
   .menu {
     display: flex;
     list-style: none;
-    gap: $spacing-lg;
+    gap: $spacing-xs;
     align-items: center;
 
     @include respond-to(md) {
-      gap: $spacing-xl;
+      gap: $spacing-sm;
     }
 
     a {
-      color: $text-primary;
+      color: $text-secondary;
       font-weight: 500;
+      font-size: 0.875rem;
       transition: color $transition-base;
       position: relative;
-      padding: $spacing-xs 0;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
 
       &.active {
         color: $primary-color;
+        background: rgba($primary-color, 0.06);
+
+        [data-theme="dark"] & {
+          color: $dark-primary-color;
+          background: rgba($dark-primary-color, 0.1);
+        }
       }
 
       &::after {
         content: '';
         position: absolute;
-        bottom: -4px;
-        left: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 0;
         height: 2px;
-        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        background: $primary-color;
+        border-radius: 1px;
         transition: width $transition-base;
+
+        [data-theme="dark"] & {
+          background: $dark-primary-color;
+        }
       }
 
       &:hover {
-        color: $primary-color;
+        color: $text-primary;
+
+        [data-theme="dark"] & {
+          color: $dark-text-primary;
+        }
 
         &::after {
-          width: 100%;
+          width: 16px;
         }
       }
     }
 
     .activeIndicator {
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
       height: 2px;
-      background: linear-gradient(135deg, $primary-color, $secondary-color);
-      border-radius: 2px;
+      background: $primary-color;
+      border-radius: 1px;
     }
 
     @media (max-width: $breakpoint-md - 1px) {
       position: fixed;
-      top: 70px;
+      top: 64px;
       left: 0;
       right: 0;
       flex-direction: column;
-      background: white;
+      background: $light-surface;
       padding: $spacing-lg;
+      border-bottom: 1px solid $border-color;
       box-shadow: $shadow-lg;
-      transform: translateX(-100%);
+      transform: translateY(-120%);
       transition: transform $transition-base;
-      gap: $spacing-md;
+      gap: $spacing-xs;
 
       &.open {
-        transform: translateX(0);
+        transform: translateY(0);
       }
 
       [data-theme="dark"] & {
         background: $dark-surface;
+        border-bottom-color: $dark-border-color;
       }
     }
   }
@@ -132,11 +154,15 @@
     padding: $spacing-xs;
 
     span {
-      width: 25px;
-      height: 3px;
+      width: 20px;
+      height: 2px;
       background: $text-primary;
       border-radius: 2px;
       transition: all $transition-base;
+
+      [data-theme="dark"] & {
+        background: $dark-text-primary;
+      }
     }
 
     @media (max-width: $breakpoint-md - 1px) {

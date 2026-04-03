@@ -1,9 +1,9 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .projectDetail {
   min-height: 100vh;
-  padding: $spacing-2xl 0;
+  padding: $spacing-3xl 0;
   background: $light-bg;
 
   [data-theme="dark"] & {
@@ -12,62 +12,57 @@
 
   .container {
     @include container;
-    max-width: 900px;
+    max-width: 880px;
   }
 
   .backButton {
     @include button-reset;
     display: inline-flex;
     align-items: center;
-    gap: $spacing-sm;
-    padding: $spacing-sm $spacing-md;
-    margin-bottom: $spacing-xl;
-    color: $primary-color;
-    font-size: 1rem;
-    font-weight: 600;
-    background: rgba(99, 102, 241, 0.1);
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-md;
+    margin-bottom: $spacing-2xl;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    font-weight: 500;
     border-radius: $radius-md;
     transition: all $transition-base;
     cursor: pointer;
 
     &:hover {
-      background: rgba(99, 102, 241, 0.2);
-      transform: translateX(-5px);
+      color: $primary-color;
+      transform: translateX(-4px);
     }
 
     [data-theme="dark"] & {
-      color: lighten($primary-color, 10%);
-      background: rgba(99, 102, 241, 0.2);
+      color: $dark-text-secondary;
 
       &:hover {
-        background: rgba(99, 102, 241, 0.3);
+        color: $dark-primary-color;
       }
     }
   }
 
   .header {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
 
     .title {
-      font-size: clamp(2rem, 6.5vw, 2.5rem);
-      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
       margin-bottom: $spacing-md;
       color: $text-primary;
 
       [data-theme="dark"] & {
         color: $dark-text-primary;
       }
-
-      @include respond-to(md) {
-        font-size: 3rem;
-      }
     }
 
     .description {
-      font-size: 1.25rem;
+      font-size: 1.0625rem;
       line-height: 1.8;
       color: $text-secondary;
-      margin-bottom: $spacing-lg;
+      margin-bottom: $spacing-xl;
 
       [data-theme="dark"] & {
         color: $dark-text-secondary;
@@ -76,35 +71,23 @@
 
     .links {
       display: flex;
-      gap: $spacing-md;
+      gap: $spacing-sm;
       flex-wrap: wrap;
     }
 
     .linkBtn {
-      display: inline-flex;
-      align-items: center;
-      gap: $spacing-sm;
-      padding: $spacing-md $spacing-lg;
-      background: $primary-color;
-      color: white;
-      text-decoration: none;
-      border-radius: $radius-md;
-      font-weight: 600;
-      transition: all $transition-base;
-
-      &:hover {
-        background: darken($primary-color, 10%);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-      }
+      @include button-primary;
+      padding: $spacing-sm $spacing-lg;
+      font-size: 0.875rem;
     }
   }
 
+  // ─── Screenshots ────────────────────────────────────────────
   .screenshots {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
 
     .sectionTitle {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: $spacing-md;
       color: $text-primary;
@@ -125,12 +108,12 @@
     }
 
     .screenshotHint {
-      font-size: 0.9rem;
-      color: $text-secondary;
-      margin: (-$spacing-sm) 0 $spacing-md;
+      font-size: 0.8125rem;
+      color: $text-light;
+      margin: (-$spacing-xs) 0 $spacing-lg;
 
       [data-theme="dark"] & {
-        color: $dark-text-secondary;
+        color: $dark-text-light;
       }
     }
 
@@ -138,24 +121,20 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: $spacing-sm;
+      gap: $spacing-xs;
     }
 
     .screenshotOpenBtn {
       @include button-reset;
       display: block;
       width: 100%;
-      padding: 0;
       cursor: zoom-in;
-      text-align: left;
       border-radius: $radius-lg;
-      transition:
-        transform $transition-base,
-        box-shadow $transition-base;
+      transition: transform $transition-base, box-shadow $transition-base;
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
+        box-shadow: $shadow-lg;
       }
 
       &:focus-visible {
@@ -170,37 +149,35 @@
       aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: $radius-lg;
-      border: 1px solid rgba(99, 102, 241, 0.15);
-      background: rgba(0, 0, 0, 0.03);
-      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+      border: 1px solid $border-color;
+      background: $light-surface;
 
       [data-theme="dark"] & {
-        border-color: rgba(99, 102, 241, 0.25);
-        background: rgba(255, 255, 255, 0.04);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        border-color: $dark-border-color;
+        background: $dark-surface-elevated;
       }
     }
 
     .screenshotZoomHint {
       position: absolute;
-      bottom: $spacing-sm;
-      right: $spacing-sm;
-      padding: 4px 10px;
-      font-size: 0.75rem;
+      bottom: $spacing-xs;
+      right: $spacing-xs;
+      padding: 3px 8px;
+      font-size: 0.6875rem;
       font-weight: 600;
       color: white;
-      background: rgba(15, 23, 42, 0.65);
+      background: rgba(0, 0, 0, 0.6);
       border-radius: $radius-sm;
       pointer-events: none;
     }
 
     .screenshotCaption {
-      font-size: 0.85rem;
-      color: $text-secondary;
+      font-size: 0.8125rem;
+      color: $text-light;
       line-height: 1.4;
 
       [data-theme="dark"] & {
-        color: $dark-text-secondary;
+        color: $dark-text-light;
       }
     }
 
@@ -213,14 +190,12 @@
     }
   }
 
-  // 라이트박스 (모든 프로젝트 상세 공통)
+  // ─── Lightbox ───────────────────────────────────────────────
   .lightbox {
     position: fixed;
     inset: 0;
     z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     padding: $spacing-md;
   }
 
@@ -228,7 +203,7 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: rgba(0, 0, 0, 0.88);
+    background: rgba(0, 0, 0, 0.92);
     cursor: pointer;
     border: none;
     padding: 0;
@@ -245,48 +220,34 @@
     gap: $spacing-md;
     pointer-events: none;
 
-    > * {
-      pointer-events: auto;
-    }
+    > * { pointer-events: auto; }
   }
 
   .lightboxToolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-between;
     gap: $spacing-md;
   }
 
   .lightboxCounter {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .lightboxClose {
     @include button-reset;
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    line-height: 1;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    font-size: 1.25rem;
     color: white;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: $radius-md;
     cursor: pointer;
     transition: background $transition-base;
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.22);
-    }
-
-    &:focus-visible {
-      outline: 2px solid white;
-      outline-offset: 2px;
-    }
+    &:hover { background: rgba(255, 255, 255, 0.2); }
+    &:focus-visible { outline: 2px solid white; outline-offset: 2px; }
   }
 
   .lightboxStage {
@@ -300,46 +261,34 @@
   .lightboxNav {
     @include button-reset;
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    line-height: 1;
+    width: 44px;
+    height: 44px;
+    @include flex-center;
+    font-size: 1.75rem;
     color: white;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: $radius-md;
     cursor: pointer;
     transition: background $transition-base;
 
-    &:hover {
-      background: rgba(255, 102, 241, 0.35);
-    }
-
-    &:focus-visible {
-      outline: 2px solid white;
-      outline-offset: 2px;
-    }
+    &:hover { background: rgba(255, 255, 255, 0.2); }
+    &:focus-visible { outline: 2px solid white; outline-offset: 2px; }
 
     @include respond-to(sm) {
-      width: 56px;
-      height: 56px;
-      font-size: 2.25rem;
+      width: 52px;
+      height: 52px;
     }
   }
 
   .lightboxMain {
     flex: 1;
     min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     max-height: min(78vh, 800px);
-    background: rgba(15, 23, 42, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: $radius-lg;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .lightboxMainImage {
@@ -353,62 +302,46 @@
   .lightboxCaption {
     margin: 0;
     text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .lightboxThumbStrip {
     display: flex;
-    gap: $spacing-sm;
+    gap: $spacing-xs;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: $spacing-sm 0;
+    padding: $spacing-xs 0;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
-    &::-webkit-scrollbar {
-      height: 6px;
-    }
-
+    &::-webkit-scrollbar { height: 4px; }
     &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
     }
   }
 
   .thumbCard {
     @include button-reset;
     flex: 0 0 auto;
-    width: 112px;
-    height: 63px;
+    width: 100px;
+    height: 56px;
     border-radius: $radius-md;
     overflow: hidden;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     cursor: pointer;
     scroll-snap-align: start;
-    opacity: 0.75;
-    transition:
-      opacity $transition-base,
-      border-color $transition-base,
-      transform $transition-base;
+    opacity: 0.6;
+    transition: all $transition-base;
 
-    &:hover {
-      opacity: 1;
-      transform: scale(1.03);
-    }
-
-    &:focus-visible {
-      outline: 2px solid white;
-      outline-offset: 2px;
-    }
+    &:hover { opacity: 1; }
+    &:focus-visible { outline: 2px solid white; outline-offset: 2px; }
   }
 
   .thumbCardActive {
     opacity: 1;
-    border-color: $primary-color;
-    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5);
+    border-color: white;
   }
 
   .thumbCardImage {
@@ -417,179 +350,161 @@
     object-fit: cover;
   }
 
+  // ─── Technologies ───────────────────────────────────────────
   .technologies {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
 
     .sectionTitle {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: $spacing-md;
       color: $text-primary;
 
-      [data-theme="dark"] & {
-        color: $dark-text-primary;
-      }
+      [data-theme="dark"] & { color: $dark-text-primary; }
     }
 
     .techList {
       display: flex;
       flex-wrap: wrap;
-      gap: $spacing-sm;
+      gap: $spacing-xs;
     }
 
     .techTag {
       display: inline-block;
-      padding: $spacing-sm $spacing-md;
-      background: rgba(99, 102, 241, 0.1);
+      padding: $spacing-2xs $spacing-sm;
+      background: rgba($primary-color, 0.06);
       color: $primary-color;
-      border-radius: $radius-lg;
-      font-size: 0.9rem;
-      font-weight: 600;
+      border: 1px solid rgba($primary-color, 0.12);
+      border-radius: $radius-md;
+      font-size: 0.8125rem;
+      font-weight: 500;
 
       [data-theme="dark"] & {
-        background: rgba(99, 102, 241, 0.2);
-        color: lighten($primary-color, 10%);
+        background: rgba($dark-primary-color, 0.08);
+        color: $dark-primary-color;
+        border-color: rgba($dark-primary-color, 0.15);
       }
     }
   }
 
+  // ─── README ─────────────────────────────────────────────────
   .readmeSection {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
   }
 
   .readmeSectionTitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: $spacing-md;
     color: $text-primary;
 
-    [data-theme="dark"] & {
-      color: $dark-text-primary;
-    }
+    [data-theme="dark"] & { color: $dark-text-primary; }
   }
 
   .readmeContent {
     @include card;
     padding: $spacing-2xl;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
 
-    [data-theme="dark"] & {
-      background: rgba(30, 41, 59, 0.9);
-    }
-
-    // 커스텀 컴포넌트 (제목·단락·메타)
     .mdH2 {
-      font-size: 1.75rem;
-      margin-top: $spacing-xl;
+      font-size: 1.5rem;
+      margin-top: $spacing-2xl;
       margin-bottom: $spacing-md;
       font-weight: 700;
       color: $text-primary;
       padding-bottom: $spacing-sm;
-      border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+      border-bottom: 1px solid $border-color;
 
-      &:first-child {
-        margin-top: 0;
-      }
+      &:first-child { margin-top: 0; }
 
       [data-theme="dark"] & {
         color: $dark-text-primary;
-        border-bottom-color: rgba(99, 102, 241, 0.35);
+        border-bottom-color: $dark-border-color;
       }
     }
 
     .mdH3 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
+      margin-top: $spacing-xl;
+      margin-bottom: $spacing-sm;
+      font-weight: 700;
+      color: $text-primary;
+
+      [data-theme="dark"] & { color: $dark-text-primary; }
+    }
+
+    .mdH4 {
+      font-size: 1.0625rem;
       margin-top: $spacing-lg;
       margin-bottom: $spacing-sm;
       font-weight: 700;
       color: $text-primary;
 
-      [data-theme="dark"] & {
-        color: $dark-text-primary;
-      }
-    }
-
-    .mdH4 {
-      font-size: 1.15rem;
-      margin-top: $spacing-md;
-      margin-bottom: $spacing-sm;
-      font-weight: 700;
-      color: $text-primary;
-
-      [data-theme="dark"] & {
-        color: $dark-text-primary;
-      }
+      [data-theme="dark"] & { color: $dark-text-primary; }
     }
 
     .mdP {
       margin-bottom: $spacing-md;
       line-height: 1.8;
       color: $text-secondary;
+      font-size: 0.9375rem;
 
-      [data-theme="dark"] & {
-        color: $dark-text-secondary;
-      }
+      [data-theme="dark"] & { color: $dark-text-secondary; }
     }
 
     .readmeMeta {
-      margin: 0 0 $spacing-lg;
-      padding: $spacing-md $spacing-lg;
-      border-left: 4px solid $primary-color;
+      margin: 0 0 $spacing-xl;
+      padding: $spacing-lg;
+      border-left: 3px solid $primary-color;
       border-radius: 0 $radius-md $radius-md 0;
-      background: rgba(99, 102, 241, 0.06);
+      background: rgba($primary-color, 0.04);
       font-style: normal;
       color: $text-secondary;
 
       [data-theme="dark"] & {
-        background: rgba(99, 102, 241, 0.12);
+        border-left-color: $dark-primary-color;
+        background: rgba($dark-primary-color, 0.06);
         color: $dark-text-secondary;
       }
 
       :global(p) {
-        margin: 0 0 $spacing-sm;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
+        margin: 0 0 $spacing-xs;
+        &:last-child { margin-bottom: 0; }
       }
     }
 
     .mdHr {
-      margin: $spacing-xl 0;
+      margin: $spacing-2xl 0;
       border: none;
       height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(99, 102, 241, 0.35),
-        transparent
-      );
+      background: $border-color;
+
+      [data-theme="dark"] & {
+        background: $dark-border-color;
+      }
     }
 
-    // Markdown 스타일링 (기본 태그)
     :global(h1) {
-      font-size: 2rem;
-      margin-top: $spacing-xl;
+      font-size: 1.75rem;
+      margin-top: $spacing-2xl;
       margin-bottom: $spacing-md;
       font-weight: 700;
-      border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+      border-bottom: 1px solid $border-color;
       padding-bottom: $spacing-sm;
       color: $text-primary;
 
       [data-theme="dark"] & {
         color: $dark-text-primary;
+        border-bottom-color: $dark-border-color;
       }
     }
 
     :global(p) {
       margin-bottom: $spacing-md;
       line-height: 1.8;
+      font-size: 0.9375rem;
       color: $text-secondary;
 
-      [data-theme="dark"] & {
-        color: $dark-text-secondary;
-      }
+      [data-theme="dark"] & { color: $dark-text-secondary; }
     }
 
     :global(ul),
@@ -599,54 +514,60 @@
     }
 
     :global(li) {
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-xs;
       line-height: 1.8;
+      font-size: 0.9375rem;
       color: $text-secondary;
 
-      [data-theme="dark"] & {
-        color: $dark-text-secondary;
-      }
+      [data-theme="dark"] & { color: $dark-text-secondary; }
     }
 
     :global(code) {
       padding: 2px 6px;
-      background: rgba(99, 102, 241, 0.1);
-      border-radius: 4px;
-      font-family: "Courier New", monospace;
-      font-size: 0.9em;
+      background: rgba($primary-color, 0.06);
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: 0.85em;
       color: $primary-color;
 
       [data-theme="dark"] & {
-        background: rgba(99, 102, 241, 0.2);
-        color: lighten($primary-color, 10%);
+        background: rgba($dark-primary-color, 0.1);
+        color: $dark-primary-color;
       }
     }
 
     :global(pre) {
-      padding: $spacing-md;
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: $radius-md;
+      padding: $spacing-lg;
+      background: $light-bg;
+      border: 1px solid $border-color;
+      border-radius: $radius-lg;
       overflow-x: auto;
       margin-bottom: $spacing-md;
 
       [data-theme="dark"] & {
-        background: rgba(255, 255, 255, 0.05);
+        background: $dark-bg;
+        border-color: $dark-border-color;
       }
 
       :global(code) {
         background: transparent;
         padding: 0;
+        color: $text-primary;
+        font-size: 0.8125rem;
+
+        [data-theme="dark"] & { color: $dark-text-primary; }
       }
     }
 
     :global(blockquote) {
-      border-left: 4px solid $primary-color;
+      border-left: 3px solid $border-color;
       padding-left: $spacing-md;
       margin: $spacing-md 0;
       color: $text-secondary;
       font-style: italic;
 
       [data-theme="dark"] & {
+        border-left-color: $dark-border-color;
         color: $dark-text-secondary;
       }
     }
@@ -654,9 +575,13 @@
     :global(a) {
       color: $primary-color;
       text-decoration: underline;
+      text-underline-offset: 2px;
 
-      &:hover {
-        color: $secondary-color;
+      &:hover { color: $secondary-color; }
+
+      [data-theme="dark"] & {
+        color: $dark-primary-color;
+        &:hover { color: $dark-secondary-color; }
       }
     }
 
@@ -671,39 +596,36 @@
       width: 100%;
       border-collapse: collapse;
       margin: $spacing-md 0;
+      font-size: 0.875rem;
 
       :global(th),
       :global(td) {
         padding: $spacing-sm;
-        border: 1px solid rgba(99, 102, 241, 0.2);
+        border: 1px solid $border-color;
         text-align: left;
+
+        [data-theme="dark"] & {
+          border-color: $dark-border-color;
+        }
       }
 
       :global(th) {
-        background: rgba(99, 102, 241, 0.1);
-        font-weight: 700;
+        background: $light-bg;
+        font-weight: 600;
+
+        [data-theme="dark"] & {
+          background: $dark-surface;
+        }
       }
     }
   }
 
-  // Mobile readability tweaks
+  // ─── Mobile ─────────────────────────────────────────────────
   @media (max-width: calc(#{$breakpoint-md} - 1px)) {
-    padding: $spacing-xl 0;
-
-    .backButton {
-      margin-bottom: $spacing-lg;
-    }
+    padding: $spacing-2xl 0;
 
     .header {
-      margin-bottom: $spacing-xl;
-
-      .description {
-        font-size: 1.05rem;
-      }
-
-      .linkBtn {
-        padding: $spacing-sm $spacing-md;
-      }
+      margin-bottom: $spacing-2xl;
     }
 
     .readmeContent {

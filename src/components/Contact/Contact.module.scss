@@ -3,7 +3,10 @@
 
 .contact {
   @include section;
-  background: $light-surface;
+
+  [data-theme="dark"] & {
+    background: $dark-bg;
+  }
 
   .container {
     @include container;
@@ -20,16 +23,20 @@
 
   .subtitle {
     text-align: center;
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: $text-secondary;
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
   }
 
   .contactGrid {
     display: grid;
     gap: $spacing-lg;
-    max-width: 900px;
-    margin: 0 auto $spacing-2xl;
+    max-width: 800px;
+    margin: 0 auto $spacing-3xl;
 
     @include respond-to(md) {
       grid-template-columns: repeat(2, 1fr);
@@ -40,52 +47,67 @@
     @include card;
     display: flex;
     align-items: center;
-    gap: $spacing-md;
+    gap: $spacing-lg;
     text-decoration: none;
     color: inherit;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(99, 102, 241, 0.1);
-    transition: all $transition-base;
-
-    [data-theme="dark"] & {
-      background: rgba(30, 41, 59, 0.8);
-      border-color: rgba(99, 102, 241, 0.2);
-    }
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: $shadow-xl;
-      border-color: rgba(99, 102, 241, 0.3);
-    }
   }
 
   .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    @include flex-center;
+    background: rgba($primary-color, 0.06);
+    border-radius: $radius-lg;
+
+    [data-theme="dark"] & {
+      background: rgba($dark-primary-color, 0.1);
+    }
   }
 
   .info {
     flex: 1;
+    min-width: 0;
   }
 
   .label {
-    font-size: 1rem;
-    margin-bottom: $spacing-xs;
-    color: $text-primary;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-2xs;
+    color: $text-light;
+
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
   }
 
   .value {
-    font-size: 0.875rem;
-    color: $text-secondary;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $text-primary;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
   }
 
   .footer {
     text-align: center;
-    padding-top: $spacing-xl;
+    padding-top: $spacing-2xl;
     border-top: 1px solid $border-color;
-    color: $text-secondary;
-    font-size: 0.875rem;
+    color: $text-light;
+    font-size: 0.8125rem;
+
+    [data-theme="dark"] & {
+      border-top-color: $dark-border-color;
+      color: $dark-text-light;
+    }
   }
 }

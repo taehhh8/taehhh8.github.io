@@ -3,116 +3,400 @@
 
 .about {
   @include section;
-  background: $light-surface;
   position: relative;
-  overflow: hidden;
+  background: $light-surface;
 
   [data-theme="dark"] & {
-    background: $dark-surface;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05), transparent 50%);
-    pointer-events: none;
+    background: $dark-bg;
   }
 
   .container {
     @include container;
   }
 
-  .title {
+  // ─── Section Header ─────────────────────────────────────────────
+  .sectionHeader {
     text-align: center;
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-4xl;
+  }
+
+  .sectionLabel {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $primary-color;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-md;
+
+    [data-theme="dark"] & {
+      color: $dark-primary-color;
+    }
+  }
+
+  .title {
+    margin-bottom: $spacing-md;
+    font-size: clamp(2rem, 5vw, 3rem);
 
     .gradient {
       @include gradient-text;
     }
   }
 
-  .content {
-    display: grid;
-    gap: $spacing-xl;
-    align-items: center;
+  .titleDescription {
+    font-size: 1.0625rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
 
-    @include respond-to(lg) {
-      grid-template-columns: 1fr 1fr;
-      gap: $spacing-2xl;
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
     }
   }
 
-  .text {
-    p {
-      font-size: 1.125rem;
-      line-height: 1.8;
-      margin-bottom: $spacing-md;
-      color: $text-secondary;
-    }
-  }
-
-  .highlights {
+  // ─── Full Width Content ─────────────────────────────────────────
+  .contentFull {
     display: flex;
-    gap: $spacing-lg;
-    margin-top: $spacing-xl;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: $spacing-3xl;
   }
 
-  .highlight {
+  // ─── Main Intro ─────────────────────────────────────────────────
+  .mainIntro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $spacing-3xl;
+    background: $light-surface-elevated;
+    border: 1px solid $border-color;
+    border-radius: $radius-2xl;
+    box-shadow: $shadow-md;
+
+    [data-theme="dark"] & {
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
+      box-shadow: $dark-shadow-md;
+    }
+  }
+
+  .mainTitle {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+
+    .highlight {
+      @include gradient-text;
+      font-weight: 800;
+    }
+  }
+
+  .mainDescription {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: $text-secondary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+
+    strong.highlight {
+      color: $primary-color;
+      font-weight: 600;
+
+      [data-theme="dark"] & {
+        color: $dark-primary-color;
+      }
+    }
+  }
+
+  // ─── Highlights ─────────────────────────────────────────────────
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .highlightCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: $spacing-md;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: $radius-lg;
-    box-shadow: $shadow-sm;
-    border: 1px solid rgba(99, 102, 241, 0.1);
-    min-width: 120px;
-    transition: transform $transition-base;
+    text-align: center;
+    padding: $spacing-2xl;
+    background: $light-surface-elevated;
+    border: 1px solid $border-color;
+    border-radius: $radius-xl;
+    transition: all $transition-base;
+    cursor: default;
 
     [data-theme="dark"] & {
-      background: rgba(30, 41, 59, 0.8);
-      border-color: rgba(99, 102, 241, 0.2);
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
     }
 
     &:hover {
-      transform: translateY(-4px);
-    }
+      border-color: rgba($primary-color, 0.3);
+      box-shadow: $shadow-lg;
 
-    .number {
-      font-size: 2rem;
-      font-weight: 700;
-      @include gradient-text;
-      margin-bottom: $spacing-xs;
-    }
-
-    .label {
-      font-size: 0.875rem;
-      color: $text-secondary;
+      [data-theme="dark"] & {
+        border-color: rgba($dark-primary-color, 0.3);
+        box-shadow: $dark-shadow-lg;
+      }
     }
   }
 
-  .image {
-    @include flex-center;
+  .highlightIcon {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-md;
+    display: block;
   }
 
-  .imageFrame {
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1;
-    position: relative;
+  .highlightContent {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+  }
+
+  .highlightNumber {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    @include gradient-text;
+    line-height: 1;
+  }
+
+  .highlightLabel {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
+  }
+
+  .highlightDescription {
+    font-size: 0.875rem;
+    color: $text-secondary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+  }
+
+  // ─── Two Column Grid ────────────────────────────────────────────
+  .twoColumnGrid {
+    display: grid;
+    gap: $spacing-2xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  // ─── Expertise ──────────────────────────────────────────────────
+  .expertise {
+    background: $light-surface-elevated;
+    border: 1px solid $border-color;
     border-radius: $radius-xl;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+    padding: $spacing-2xl;
+    box-shadow: $shadow-sm;
+
+    [data-theme="dark"] & {
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
+      box-shadow: none;
+    }
   }
 
-  .profilePhoto {
-    object-fit: cover;
+  .sectionSubtitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: $spacing-xl;
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(135deg, $primary-color, $accent-color);
+      border-radius: $radius-full;
+
+      [data-theme="dark"] & {
+        background: linear-gradient(135deg, $dark-primary-color, $dark-accent-color);
+      }
+    }
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .skillItem {
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .skillInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-xs;
+  }
+
+  .skillName {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $text-primary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .skillLevel {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $primary-color;
+
+    [data-theme="dark"] & {
+      color: $dark-primary-color;
+    }
+  }
+
+  .skillBar {
+    height: 10px;
+    background: rgba($border-color, 0.5);
+    border-radius: $radius-full;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    [data-theme="dark"] & {
+      background: rgba($dark-border-color, 0.5);
+    }
+  }
+
+  .skillProgress {
+    height: 100%;
+    background: linear-gradient(90deg, $primary-color, $accent-color);
+    border-radius: $radius-full;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, $dark-primary-color, $dark-accent-color);
+    }
+  }
+
+  // ─── Achievements ───────────────────────────────────────────────
+  .achievements {
+    background: $light-surface-elevated;
+    border: 1px solid $border-color;
+    border-radius: $radius-xl;
+    padding: $spacing-2xl;
+    box-shadow: $shadow-sm;
+
+    [data-theme="dark"] & {
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
+      box-shadow: none;
+    }
+  }
+
+  .achievementItem {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    border-radius: $radius-lg;
+    margin-bottom: $spacing-md;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all $transition-base;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background: rgba($primary-color, 0.03);
+      border-color: rgba($primary-color, 0.1);
+
+      [data-theme="dark"] & {
+        background: rgba($dark-primary-color, 0.05);
+        border-color: rgba($dark-primary-color, 0.15);
+      }
+    }
+  }
+
+  .achievementIcon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: $spacing-2xs;
+  }
+
+  .achievementContent {
+    flex: 1;
+  }
+
+  .achievementTitle {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .achievementDescription {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin: 0;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+  }
+}
+
+// ─── Animations ─────────────────────────────────────────────────
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
