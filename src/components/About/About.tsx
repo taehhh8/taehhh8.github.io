@@ -14,7 +14,7 @@ const About = () => {
       icon: '🚀', 
       number: '8+', 
       label: 'Projects',
-      description: 'Web3 프로젝트'
+      description: '서비스 프로젝트'
     },
     { 
       icon: '⏱️', 
@@ -31,10 +31,10 @@ const About = () => {
   ];
 
   const expertise = [
-    { area: 'Web3 Frontend', level: 95 },
+    { area: 'Product Frontend', level: 95 },
     { area: 'React & Next.js', level: 90 },
     { area: 'TypeScript', level: 88 },
-    { area: 'Smart Contract Integration', level: 85 },
+    { area: 'Async UX & State', level: 85 },
   ];
 
   const achievements = [
@@ -44,8 +44,8 @@ const About = () => {
       icon: '👨‍💻'
     },
     {
-      title: '프로덕션 운영',
-      description: 'DeFi 플랫폼부터 미니앱까지 실제 사용자 서비스 운영',
+      title: '실서비스 운영',
+      description: '배포 이후 모니터링·개선·유지보수까지 주도적으로 수행',
       icon: '🎯'
     },
     {
@@ -69,7 +69,7 @@ const About = () => {
             About <span className={styles.gradient}>Me</span>
           </h2>
           <p className={styles.titleDescription}>
-            Web3와 프론트엔드 기술로 혁신적인 서비스를 만듭니다
+            React·Next.js·TypeScript 기반 제품 프론트엔드를 개발합니다.
           </p>
         </motion.div>
 
@@ -81,14 +81,14 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className={styles.mainTitle}>
-              사용자 중심의 <span className={styles.highlight}>Web3 경험</span>을 설계합니다
+              복잡한 요구사항을 <span className={styles.highlight}>안정적인 제품 UI</span>로 구현합니다
             </h3>
             <p className={styles.mainDescription}>
-              <strong className={styles.highlight}>3년 8개월</strong>간 Web3 프론트엔드 개발자로서 
-              DeFi 스테이킹 플랫폼, 텔레그램/LINE 미니앱, 블록체인 익스플로러 등
+              <strong className={styles.highlight}>3년 8개월</strong>간 프론트엔드 개발자로서 
+              대시보드형 서비스, 미니앱, 데이터 기반 웹 애플리케이션 등
               <strong className={styles.highlight}> 8개 이상의 프로젝트</strong>를 단독 개발해왔습니다.
-              사용자 경험과 온체인 트랜잭션 UX를 최우선으로 생각하며,
-              <strong className={styles.highlight}> Next.js · TypeScript · ethers.js</strong> 기반의 
+              사용자 경험과 비동기 데이터 흐름을 최우선으로 생각하며,
+              <strong className={styles.highlight}> Next.js · TypeScript · React Query</strong> 기반의 
               깔끔하고 유지보수하기 좋은 코드를 작성합니다.
             </p>
             <p className={styles.workflowNote}>

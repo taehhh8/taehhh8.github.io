@@ -66,8 +66,7 @@ const Skills = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          다양한 기술 스택으로 구현하며, Cursor로 탐색·리팩터링 효율을 높이고 변경분은 검토·테스트 후
-          반영합니다.
+          제품 관점의 프론트엔드를 구현하며, 복잡한 상태 관리와 운영 이슈를 안정적으로 해결합니다.
         </motion.p>
         <motion.div
           className={styles.categories}

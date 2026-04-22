@@ -14,11 +14,52 @@ interface ProjectDetailProps {
   readmeContent: string;
 }
 
+function extractTroubleshootingSummary(markdown: string): string {
+  if (!markdown) return '';
+
+  const lines = markdown.split('\n');
+  const headingPattern = /^##\s+/;
+  const targetHeadingPattern =
+    /^##\s*(트러블슈팅|기술적\s*도전|문제\s*해결|Technical\s*Challenges?|Troubleshooting)/i;
+  let collecting = false;
+  const collected: string[] = [];
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!collecting && targetHeadingPattern.test(line)) {
+      collecting = true;
+      continue;
+    }
+
+    if (collecting && headingPattern.test(line)) {
+      break;
+    }
+
+    if (!collecting || !line) {
+      continue;
+    }
+
+    const normalized = line
+      .replace(/^[-*]\s+/, '')
+      .replace(/^\d+\.\s+/, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*`#>]/g, '')
+      .trim();
+
+    if (normalized) {
+      collected.push(normalized);
+    }
+  }
+
+  return collected.slice(0, 3).join(' / ');
+}
+
 const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
   const shots = project.screenshots ?? [];
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const lightboxOpen = lightboxIndex !== null;
   const thumbStripRef = useRef<HTMLDivElement>(null);
+  const troubleshootingSummary = extractTroubleshootingSummary(readmeContent);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
@@ -143,6 +184,19 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
             )}
           </div>
         </motion.div>
+
+        {troubleshootingSummary && (
+          <motion.section
+            className={styles.troubleshooting}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            aria-label="기술적 도전과 해결 요약"
+          >
+            <h2 className={styles.sectionTitle}>기술적 도전과 해결</h2>
+            <p className={styles.troubleshootingSummary}>{troubleshootingSummary}</p>
+          </motion.section>
+        )}
 
         {/* 스크린샷 갤러리 */}
         {shots.length > 0 && (

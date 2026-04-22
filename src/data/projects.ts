@@ -140,6 +140,17 @@ const sajuViewerScreenshots: ProjectScreenshot[] = [
   { image: SajuMbtiInfo3, alt: 'SAJU Viewer — MBTI 정보 3' },
 ];
 
+const descriptionOverrides: Record<number, string> = {
+  1: 'KIP17 기반 NFT 런치패드/세일즈 서비스 프론트엔드를 단독 개발하고 운영했습니다.',
+  2: '멀티체인 DeFi 스테이킹 플랫폼을 구축하며 지갑 연결·예치·보상 플로우를 구현했습니다.',
+  3: 'Telegram Mini App 기반 음악/리워드 서비스를 구현하고 온체인 연동 UX를 개선했습니다.',
+  4: 'Kaia LINE LIFF 기반 미니앱에서 지갑 연결·유동성·리워드 기능을 프론트엔드 중심으로 구현했습니다.',
+  5: 'Internet Computer 블록체인 익스플로러를 개발해 트랜잭션/토큰 조회 경험을 고도화했습니다.',
+  6: 'BeatSwap 서비스의 스왑·스테이킹·오라클 화면을 구축하고 데이터 가시성을 개선했습니다.',
+  7: 'AUG Token 서비스의 웹/모바일 예치 플로우를 개발해 사용자 온보딩을 단순화했습니다.',
+  8: 'Saju Viewer 개인 프로젝트에서 검색 기반 결과 페이지와 정보 탐색 UX를 설계·구현했습니다.',
+};
+
 /**
  * README 파일에서 프로젝트 정보를 읽어옵니다
  * 빌드 타임에 실행되어 정적 데이터를 생성합니다
@@ -152,7 +163,7 @@ export function getProjects(): Project[] {
     const base: Project = {
       id: config.id,
       title: readmeData.title || `프로젝트 ${config.id}`,
-      description: readmeData.description || '설명이 없습니다.',
+      description: descriptionOverrides[config.id] || readmeData.description || '설명이 없습니다.',
       technologies: readmeData.technologies.length > 0 
         ? readmeData.technologies 
         : [],

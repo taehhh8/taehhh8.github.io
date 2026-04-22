@@ -61,18 +61,18 @@ const Hero = () => {
 
           <motion.div className={styles.roleWrapper} variants={itemVariants}>
             <div className={styles.roleContainer}>
-              <span className={styles.roleLabel}>Web3</span>
+              <span className={styles.roleLabel}>Product</span>
               <span className={styles.roleSeparator}>/</span>
               <span className={styles.roleLabel}>Frontend</span>
               <span className={styles.roleSeparator}>/</span>
-              <span className={styles.roleLabel}>Developer</span>
+              <span className={styles.roleLabel}>Engineer</span>
             </div>
           </motion.div>
 
           <motion.p className={styles.description} variants={itemVariants}>
-            3년 8개월간 <strong>Web3 DeFi, 미니앱, 블록체인 익스플로러</strong> 등을 단독 개발하며
+            3년 8개월간 <strong>React·Next.js·TypeScript 기반 서비스 프론트엔드</strong>를 개발하며
             <br className={styles.desktopBreak} />
-            사용자 중심의 혁신적인 서비스를 만들어왔습니다.
+            복잡한 비동기 상태와 운영 이슈를 사용자 중심으로 해결해왔습니다.
           </motion.p>
 
           <motion.div className={styles.stats} variants={itemVariants}>

@@ -236,8 +236,8 @@ export function parseReadme(readmeContent: string) {
     }
   }
   
-  // 중복 제거 및 최대 15개로 제한
-  result.technologies = [...new Set(result.technologies)].slice(0, 15);
+  // 중복 제거 및 핵심 기술만 최대 6개 노출
+  result.technologies = [...new Set(result.technologies)].slice(0, 6);
 
   // 코드 블록에서 언어 추출 (fallback) - bash, sh 등은 제외
   if (result.technologies.length === 0) {

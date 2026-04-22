@@ -82,6 +82,41 @@
     }
   }
 
+  .troubleshooting {
+    margin-bottom: $spacing-3xl;
+    padding: $spacing-xl;
+    border: 1px solid rgba($primary-color, 0.18);
+    border-radius: $radius-xl;
+    background: rgba($primary-color, 0.04);
+
+    [data-theme="dark"] & {
+      border-color: rgba($dark-primary-color, 0.28);
+      background: rgba($dark-primary-color, 0.08);
+    }
+  }
+
+  .sectionTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+    color: $text-primary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .troubleshootingSummary {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $text-secondary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+  }
+
   // ─── Screenshots ────────────────────────────────────────────
   .screenshots {
     margin-bottom: $spacing-3xl;
