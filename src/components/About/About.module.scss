@@ -116,6 +116,29 @@
     }
   }
 
+  .workflowNote {
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $border-color;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: $text-secondary;
+
+    [data-theme="dark"] & {
+      border-top-color: $dark-border-color;
+      color: $dark-text-secondary;
+    }
+
+    strong.highlight {
+      color: $primary-color;
+      font-weight: 600;
+
+      [data-theme="dark"] & {
+        color: $dark-primary-color;
+      }
+    }
+  }
+
   // ─── Highlights ─────────────────────────────────────────────────
   .highlights {
     display: grid;

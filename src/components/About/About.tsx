@@ -91,6 +91,11 @@ const About = () => {
               <strong className={styles.highlight}> Next.js · TypeScript · ethers.js</strong> 기반의 
               깔끔하고 유지보수하기 좋은 코드를 작성합니다.
             </p>
+            <p className={styles.workflowNote}>
+              이 포트폴리오를 포함해 최근 작업은 <strong className={styles.highlight}>Cursor</strong>로
+              구조 파악·초안 작성·리팩터링 속도를 높였고, 제안된 변경은 항상 직접 검토하고
+              빌드·동작 테스트를 거친 뒤에만 반영합니다.
+            </p>
           </motion.div>
 
           <div className={styles.highlights}>

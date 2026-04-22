@@ -20,8 +20,8 @@ const Skills = () => {
       skills: ['Node.js', 'Express', 'TypeScript', 'Supabase', 'RESTful API'],
     },
     {
-      title: 'Tools & Others',
-      skills: ['Git', 'GitHub', 'VS Code', 'Cursor', 'Figma', 'PostgreSQL'],
+      title: 'Tools & Workflow',
+      skills: ['Git', 'GitHub', 'Cursor', 'VS Code', 'Figma', 'PostgreSQL'],
     },
   ];
 
@@ -66,7 +66,8 @@ const Skills = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          다양한 기술 스택을 활용하여 프로젝트를 구현합니다.
+          다양한 기술 스택으로 구현하며, Cursor로 탐색·리팩터링 효율을 높이고 변경분은 검토·테스트 후
+          반영합니다.
         </motion.p>
         <motion.div
           className={styles.categories}
