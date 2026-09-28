@@ -12,16 +12,16 @@ const Skills = () => {
       skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Redux Toolkit', 'React Query', 'HTML/CSS', 'SASS'],
     },
     {
-      title: 'Web3',
-      skills: ['ethers.js', 'wagmi', 'viem', 'Reown AppKit', 'Kaia', 'TON Connect', 'LIFF SDK'],
+      title: 'Backend & Data',
+      skills: ['Node.js', 'Express', 'Supabase', 'PostgreSQL', 'RESTful API'],
     },
     {
-      title: 'Backend',
-      skills: ['Node.js', 'Express', 'TypeScript', 'Supabase', 'RESTful API'],
+      title: 'Integration',
+      skills: ['LIFF SDK', 'TON Connect', 'wagmi', 'viem'],
     },
     {
       title: 'Tools & Workflow',
-      skills: ['Git', 'GitHub', 'Cursor', 'VS Code', 'Figma', 'PostgreSQL'],
+      skills: ['Git', 'GitHub', 'Cursor', 'VS Code', 'Figma'],
     },
   ];
 

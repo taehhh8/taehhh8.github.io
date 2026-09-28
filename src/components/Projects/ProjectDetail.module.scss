@@ -80,6 +80,17 @@
       padding: $spacing-sm $spacing-lg;
       font-size: 0.875rem;
     }
+
+    .repoNote {
+      width: 100%;
+      margin: $spacing-xs 0 0;
+      font-size: 0.875rem;
+      color: $text-secondary;
+
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
+    }
   }
 
   .troubleshooting {

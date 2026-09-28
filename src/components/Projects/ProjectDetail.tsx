@@ -182,6 +182,9 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
                 💻 GitHub
               </motion.a>
             )}
+            {(!project.github || project.github === '#') && (
+              <p className={styles.repoNote}>사내 비공개 저장소 · 라이브 URL과 README를 참고해 주세요.</p>
+            )}
           </div>
         </motion.div>
 

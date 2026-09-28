@@ -74,7 +74,7 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          프로젝트나 협업에 대해 이야기하고 싶으시다면 언제든지 연락주세요!
+          프론트엔드 포지션·협업 제안은 메일이나 GitHub로 연락 주세요.
         </motion.p>
         <motion.div
           className={styles.contactGrid}

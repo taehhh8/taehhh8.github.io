@@ -166,6 +166,16 @@
     }
   }
 
+  .repoNote {
+    margin: 0 0 $spacing-sm;
+    font-size: 0.75rem;
+    color: $text-secondary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+  }
+
   .viewMore {
     margin-top: $spacing-sm;
     font-size: 0.8125rem;

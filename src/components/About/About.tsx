@@ -18,7 +18,7 @@ const About = () => {
     },
     { 
       icon: '⏱️', 
-      number: '3.8y', 
+      number: '4y', 
       label: 'Experience',
       description: '실무 경력'
     },
@@ -30,27 +30,27 @@ const About = () => {
     },
   ];
 
-  const expertise = [
-    { area: 'Product Frontend', level: 95 },
-    { area: 'React & Next.js', level: 90 },
-    { area: 'TypeScript', level: 88 },
-    { area: 'Async UX & State', level: 85 },
+  const focusAreas = [
+    'Product Frontend',
+    'React & Next.js',
+    'TypeScript',
+    'Async UX & State',
   ];
 
   const achievements = [
     {
-      title: '단독 개발',
-      description: '모든 프로젝트를 처음부터 끝까지 혼자 설계하고 구현',
+      title: '단독 리드',
+      description: '요구사항 분석부터 화면 설계, API 연동, 배포까지 프론트엔드 전 과정을 맡았습니다',
       icon: '👨‍💻'
     },
     {
       title: '실서비스 운영',
-      description: '배포 이후 모니터링·개선·유지보수까지 주도적으로 수행',
+      description: '배포 이후 모니터링·개선·유지보수까지 주도적으로 수행했습니다',
       icon: '🎯'
     },
     {
-      title: '최신 기술',
-      description: 'Next.js, TypeScript, ethers.js 등 모던 스택 활용',
+      title: '복잡한 비동기 UX',
+      description: '다단계 신청·조회·온보딩의 로딩·실패·재시도 흐름을 안정적으로 설계했습니다',
       icon: '⚙️'
     },
   ];
@@ -84,17 +84,17 @@ const About = () => {
               복잡한 요구사항을 <span className={styles.highlight}>안정적인 제품 UI</span>로 구현합니다
             </h3>
             <p className={styles.mainDescription}>
-              <strong className={styles.highlight}>3년 8개월</strong>간 프론트엔드 개발자로서 
+              <strong className={styles.highlight}>4년</strong>간 프론트엔드 개발자로서 
               대시보드형 서비스, 미니앱, 데이터 기반 웹 애플리케이션 등
-              <strong className={styles.highlight}> 8개 이상의 프로젝트</strong>를 단독 개발해왔습니다.
+              <strong className={styles.highlight}> 8개 이상의 프로젝트</strong>를 설계·개발·운영해왔습니다.
               사용자 경험과 비동기 데이터 흐름을 최우선으로 생각하며,
               <strong className={styles.highlight}> Next.js · TypeScript · React Query</strong> 기반의 
-              깔끔하고 유지보수하기 좋은 코드를 작성합니다.
+              유지보수하기 좋은 코드를 작성합니다.
             </p>
             <p className={styles.workflowNote}>
               이 포트폴리오를 포함해 최근 작업은 <strong className={styles.highlight}>Cursor</strong>로
-              구조 파악·초안 작성·리팩터링 속도를 높였고, 제안된 변경은 항상 직접 검토하고
-              빌드·동작 테스트를 거친 뒤에만 반영합니다.
+              구조 파악·초안 작성·리팩터링 속도를 높였고, 제안된 변경은 직접 검토한 뒤
+              빌드·동작 테스트를 거쳐 반영합니다.
             </p>
           </motion.div>
 
@@ -126,28 +126,19 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h4 className={styles.sectionSubtitle}>핵심 역량</h4>
-              {expertise.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  className={styles.skillItem}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                >
-                  <div className={styles.skillInfo}>
-                    <span className={styles.skillName}>{skill.area}</span>
-                    <span className={styles.skillLevel}>{skill.level}%</span>
-                  </div>
-                  <div className={styles.skillBar}>
-                    <motion.div
-                      className={styles.skillProgress}
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1, delay: 0.7 + index * 0.1, ease: 'easeOut' }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
+              <div className={styles.focusList}>
+                {focusAreas.map((area, index) => (
+                  <motion.span
+                    key={area}
+                    className={styles.focusTag}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.08 }}
+                  >
+                    {area}
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div

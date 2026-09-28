@@ -63,7 +63,7 @@ const Projects = ({ projects }: ProjectsProps) => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          제가 작업한 주요 프로젝트들을 소개합니다.
+          실서비스 화면과 개인 프로젝트를 소개합니다. 회사 레포는 비공개인 경우가 많고, 라이브 URL과 상세 설명을 우선 확인하시면 됩니다.
         </motion.p>
         <motion.div
           className={styles.projectGrid}
@@ -145,6 +145,9 @@ const Projects = ({ projects }: ProjectsProps) => {
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectDescription}>{project.description}</p>
                 <p className={styles.viewMore}>자세히 보기 →</p>
+                {(!project.github || project.github === '#') && (
+                  <p className={styles.repoNote}>코드 비공개 · 라이브/상세 참고</p>
+                )}
                 <div className={styles.technologies}>
                   {project.technologies.map((tech, techIndex) => (
                     <motion.span

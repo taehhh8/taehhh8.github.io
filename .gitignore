@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# personal notes (not for GitHub Pages / public repo)
+/private/
+
 # vercel
 .vercel
 

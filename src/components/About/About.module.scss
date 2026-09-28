@@ -273,68 +273,26 @@
     }
   }
 
-  .skillItem {
-    margin-bottom: $spacing-lg;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .skillInfo {
+  .focusList {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: $spacing-xs;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
   }
 
-  .skillName {
-    font-size: 0.9375rem;
+  .focusTag {
+    display: inline-block;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-md;
+    font-size: 0.875rem;
     font-weight: 600;
     color: $text-primary;
+    background: rgba($primary-color, 0.08);
+    border: 1px solid rgba($primary-color, 0.14);
 
     [data-theme="dark"] & {
       color: $dark-text-primary;
-    }
-  }
-
-  .skillLevel {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $primary-color;
-
-    [data-theme="dark"] & {
-      color: $dark-primary-color;
-    }
-  }
-
-  .skillBar {
-    height: 10px;
-    background: rgba($border-color, 0.5);
-    border-radius: $radius-full;
-    overflow: hidden;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-
-    [data-theme="dark"] & {
-      background: rgba($dark-border-color, 0.5);
-    }
-  }
-
-  .skillProgress {
-    height: 100%;
-    background: linear-gradient(90deg, $primary-color, $accent-color);
-    border-radius: $radius-full;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      animation: shimmer 2s infinite;
-    }
-
-    [data-theme="dark"] & {
-      background: linear-gradient(90deg, $dark-primary-color, $dark-accent-color);
+      background: rgba($dark-primary-color, 0.1);
+      border-color: rgba($dark-primary-color, 0.18);
     }
   }
 
@@ -410,16 +368,5 @@
     [data-theme="dark"] & {
       color: $dark-text-secondary;
     }
-  }
-}
-
-// ─── Animations ─────────────────────────────────────────────────
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
   }
 }

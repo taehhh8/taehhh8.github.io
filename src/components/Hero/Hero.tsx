@@ -70,7 +70,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className={styles.description} variants={itemVariants}>
-            3년 8개월간 <strong>React·Next.js·TypeScript 기반 서비스 프론트엔드</strong>를 개발하며
+            4년간 <strong>React·Next.js·TypeScript 기반 서비스 프론트엔드</strong>를 개발하며
             <br className={styles.desktopBreak} />
             복잡한 비동기 상태와 운영 이슈를 사용자 중심으로 해결해왔습니다.
           </motion.p>
@@ -82,7 +82,7 @@ const Hero = () => {
             </div>
             <div className={styles.statDivider}></div>
             <div className={styles.stat}>
-              <span className={styles.statNumber}>3.8y</span>
+              <span className={styles.statNumber}>4y</span>
               <span className={styles.statLabel}>Experience</span>
             </div>
             <div className={styles.statDivider}></div>

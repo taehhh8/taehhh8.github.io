@@ -1,4 +1,4 @@
-# 박태현 | Web3 Frontend Developer Portfolio
+# 박태현 | Frontend Developer Portfolio
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react)
@@ -7,7 +7,7 @@
 
 ## 🚀 About This Portfolio
 
-3년 8개월 경력의 Web3 프론트엔드 개발자 포트폴리오 웹사이트입니다. Next.js 16과 최신 웹 기술을 활용하여 제작되었으며, 현대적이고 세련된 디자인과 부드러운 애니메이션을 특징으로 합니다.
+4년 경력의 프론트엔드 개발자 포트폴리오입니다. React·Next.js·TypeScript로 제품 UI를 만들고, Next.js 16 기반으로 이 사이트도 구성했습니다.
 
 ## ✨ Key Features
 
