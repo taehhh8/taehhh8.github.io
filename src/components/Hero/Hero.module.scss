@@ -2,11 +2,15 @@
 @import '../../styles/mixins';
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   @include flex-center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding: 5.5rem 0 2.5rem;
+
+  @include respond-to(md) {
+    padding: 6.5rem 0 3rem;
+  }
 
   .container {
     @include container;
@@ -14,10 +18,21 @@
     z-index: 1;
   }
 
+  .layout {
+    display: grid;
+    gap: $spacing-2xl;
+    align-items: center;
+
+    @include respond-to(md) {
+      grid-template-columns: minmax(0, 1.1fr) minmax(240px, 380px);
+      gap: $spacing-2xl;
+      align-items: start;
+    }
+  }
+
   .content {
-    text-align: center;
-    max-width: 880px;
-    margin: 0 auto;
+    text-align: left;
+    max-width: 640px;
   }
 
   // ─── Badge ──────────────────────────────────────────────────────
@@ -75,7 +90,7 @@
 
     .name {
       display: block;
-      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-size: clamp(2.25rem, 7vw, 3.75rem);
       font-weight: 800;
       background: linear-gradient(
         120deg,
@@ -168,10 +183,10 @@
     font-size: 1.0625rem;
     line-height: 1.75;
     color: $text-secondary;
-    margin-bottom: $spacing-2xl;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: $spacing-lg;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 
     strong {
       color: $text-primary;
@@ -203,10 +218,10 @@
   .stats {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: $spacing-lg;
-    margin-bottom: $spacing-2xl;
-    padding: $spacing-lg;
+    justify-content: flex-start;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+    padding: $spacing-md $spacing-lg;
     background: $light-surface-elevated;
     border-radius: $radius-xl;
     border: 1px solid $border-color;
@@ -271,9 +286,9 @@
   .cta {
     display: flex;
     gap: $spacing-md;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    margin-bottom: $spacing-3xl;
+    margin-bottom: 0;
   }
 
   .primaryBtn {
@@ -309,7 +324,98 @@
     }
   }
 
-  // ─── Scroll Indicator ───────────────────────────────────────────
+  .featured {
+    width: 100%;
+  }
+
+  .featuredLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-light;
+    margin: 0 0 $spacing-sm;
+
+    [data-theme="dark"] & {
+      color: $dark-text-light;
+    }
+  }
+
+  .featuredCard {
+    display: block;
+    overflow: hidden;
+    border-radius: $radius-xl;
+    border: 1px solid $border-color;
+    background: $light-surface-elevated;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: $shadow-md;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg;
+    }
+
+    [data-theme="dark"] & {
+      background: $dark-surface-elevated;
+      border-color: $dark-border-color;
+    }
+  }
+
+  .featuredImage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: $light-bg;
+
+    img {
+      object-fit: cover;
+    }
+
+    [data-theme="dark"] & {
+      background: $dark-bg;
+    }
+  }
+
+  .featuredBody {
+    padding: $spacing-md $spacing-lg $spacing-lg;
+  }
+
+  .featuredTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 $spacing-xs;
+    letter-spacing: -0.02em;
+    color: $text-primary;
+
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+
+  .featuredDesc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: $text-secondary;
+    margin: 0 0 $spacing-sm;
+
+    [data-theme="dark"] & {
+      color: $dark-text-secondary;
+    }
+  }
+
+  .featuredCta {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: $primary-color;
+
+    [data-theme="dark"] & {
+      color: $dark-primary-color;
+    }
+  }
+
+  // ─── Scroll Indicator (unused after compact hero) ───────────────
   .scrollIndicator {
     display: flex;
     flex-direction: column;

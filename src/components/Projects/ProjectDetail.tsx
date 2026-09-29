@@ -149,12 +149,31 @@ const ProjectDetail = ({ project, readmeContent }: ProjectDetailProps) => {
         {/* 프로젝트 헤더 */}
         <motion.div
           className={styles.header}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h1 className={styles.title}>{project.title}</h1>
-          {/* 설명·기술 스택은 README 본문에만 표시 (목록 카드에서는 parseReadme 요약 유지) */}
+          {project.description && (
+            <p className={styles.description}>{project.description}</p>
+          )}
+
+          {project.caseStudy && (
+            <div className={styles.caseStudy} aria-label="프로젝트 케이스 요약">
+              <div className={styles.caseItem}>
+                <h2 className={styles.caseLabel}>문제</h2>
+                <p className={styles.caseText}>{project.caseStudy.problem}</p>
+              </div>
+              <div className={styles.caseItem}>
+                <h2 className={styles.caseLabel}>한 일</h2>
+                <p className={styles.caseText}>{project.caseStudy.action}</p>
+              </div>
+              <div className={styles.caseItem}>
+                <h2 className={styles.caseLabel}>결과</h2>
+                <p className={styles.caseText}>{project.caseStudy.result}</p>
+              </div>
+            </div>
+          )}
 
           {/* 링크 버튼 */}
           <div className={styles.links}>

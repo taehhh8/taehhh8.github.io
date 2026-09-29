@@ -21,6 +21,7 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Framework**: Next.js 16.1.6 (App Router)
 - **UI Library**: React 19.2.3
 - **Language**: TypeScript 5
@@ -29,6 +30,7 @@
 - **Markdown**: react-markdown 10.1.0
 
 ### Development
+
 - **Package Manager**: npm
 - **Code Quality**: ESLint
 - **Version Control**: Git
@@ -73,22 +75,26 @@ taehhh8.github.io/
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/taehhh8/taehhh8.github.io.git
 cd taehhh8.github.io
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Run the development server**
+
 ```bash
 npm run dev
 ```
 
 4. **Open your browser**
+
 ```
 http://localhost:3000
 ```
@@ -121,9 +127,9 @@ npm start
 
 ```scss
 // Light Mode
-$primary-color: #3b82f6;      // Modern blue
-$secondary-color: #8b5cf6;    // Purple
-$accent-color: #06b6d4;       // Cyan
+$primary-color: #3b82f6; // Modern blue
+$secondary-color: #8b5cf6; // Purple
+$accent-color: #06b6d4; // Cyan
 
 // Dark Mode
 $dark-primary-color: #60a5fa;
@@ -152,6 +158,7 @@ This portfolio is deployed on GitHub Pages. To deploy your own:
    - Set Source to "GitHub Actions"
 
 2. **Push to main branch**
+
 ```bash
 git add .
 git commit -m "Update portfolio"
@@ -160,7 +167,7 @@ git push origin main
 
 ## 📧 Contact
 
-- **Email**: [your-email@example.com]
+- **Email**: [taehyun8534@gmail.com]
 - **GitHub**: [@taehhh8](https://github.com/taehhh8)
 - **Portfolio**: [taehhh8.github.io](https://taehhh8.github.io)
 

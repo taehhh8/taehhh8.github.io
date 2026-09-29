@@ -63,7 +63,7 @@ const Projects = ({ projects }: ProjectsProps) => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          실서비스 화면과 개인 프로젝트를 소개합니다. 회사 레포는 비공개인 경우가 많고, 라이브 URL과 상세 설명을 우선 확인하시면 됩니다.
+          실서비스와 개인 프로젝트를 짧은 케이스로 정리했습니다. 회사 코드는 비공개인 경우가 많습니다.
         </motion.p>
         <motion.div
           className={styles.projectGrid}

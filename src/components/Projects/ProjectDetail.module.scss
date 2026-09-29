@@ -58,6 +58,53 @@
       }
     }
 
+    .caseStudy {
+      display: grid;
+      gap: $spacing-md;
+      margin: 0 0 $spacing-xl;
+
+      @include respond-to(md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-lg;
+      }
+    }
+
+    .caseItem {
+      padding: $spacing-md;
+      border-radius: $radius-lg;
+      border: 1px solid $border-color;
+      background: $light-surface-elevated;
+
+      [data-theme="dark"] & {
+        border-color: $dark-border-color;
+        background: $dark-surface-elevated;
+      }
+    }
+
+    .caseLabel {
+      margin: 0 0 $spacing-xs;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      color: $primary-color;
+
+      [data-theme="dark"] & {
+        color: $dark-primary-color;
+      }
+    }
+
+    .caseText {
+      margin: 0;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: $text-secondary;
+
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
+    }
+
     .description {
       font-size: 1.0625rem;
       line-height: 1.8;

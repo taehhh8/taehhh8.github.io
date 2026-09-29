@@ -140,15 +140,69 @@ const sajuViewerScreenshots: ProjectScreenshot[] = [
   { image: SajuMbtiInfo3, alt: 'SAJU Viewer — MBTI 정보 3' },
 ];
 
+const titleOverrides: Record<number, string> = {
+  1: '런치패드 구매 퍼널',
+  2: '예치·보상 플로우',
+  3: '텔레그램 미니앱',
+  4: 'LINE 미니앱 온보딩',
+  5: '조회형 익스플로러',
+  6: '스왑·대시보드',
+  7: '예치 온보딩',
+  8: '사주 조회 서비스',
+};
+
 const descriptionOverrides: Record<number, string> = {
   1: '런치패드형 구매 퍼널과 상태별 화면을 설계하고, 배포 이후 운영까지 프론트엔드를 담당했습니다.',
   2: '예치·보상 등 다단계 신청 플로우와 여러 데이터 소스 동기화 UX를 구현했습니다.',
-  3: 'Telegram 미니앱에서 음악·리워드 화면과 인앱 온보딩 UX를 구현했습니다.',
+  3: '텔레그램 미니앱에서 음악·리워드 화면과 인앱 온보딩 UX를 구현했습니다.',
   4: 'LINE 미니앱에서 외부 SDK 온보딩, 폼 검증, 리워드·조회 화면을 프론트엔드 중심으로 구현했습니다.',
   5: '트랜잭션·토큰 조회형 익스플로러에서 리스트·필터·상세 드릴다운 UX를 고도화했습니다.',
   6: '스왑·랭킹·대시보드 화면을 구축하고 데이터 밀도가 높은 조회 UI를 개선했습니다.',
   7: '웹·모바일 예치 플로우의 입력 검증과 진행 상태 표시로 온보딩을 단순화했습니다.',
-  8: '검색·결과 저장·대시보드를 갖춘 개인 서비스. Next.js, 인증, Supabase(PostgreSQL)로 구현했습니다.',
+  8: '개인 프로젝트. 검색·인증·결과 저장 대시보드를 Next.js와 Supabase로 구현했고, 코드는 GitHub에 공개되어 있습니다.',
+};
+
+const caseStudyOverrides: Record<number, Project['caseStudy']> = {
+  1: {
+    problem: '세일 단계마다 보여줄 화면과 가능한 행동이 달라, 한 페이지에 섞이면 구매가 끊겼습니다.',
+    action: '상태별 퍼널 UI를 나누고 API 연동·배포 이후 운영까지 프론트엔드를 담당했습니다.',
+    result: '런치패드형 구매 흐름을 라이브로 운영했습니다. 코드는 사내 비공개입니다.',
+  },
+  2: {
+    problem: '예치·보상 단계가 많고 데이터 소스가 갈라져 진행 상태를 믿기 어려웠습니다.',
+    action: '단계별 로딩·실패·재시도 UI와 여러 소스 동기화를 맞춰 구현했습니다.',
+    result: '예치·보상 플로우를 실서비스로 운영했습니다. 코드는 사내 비공개입니다.',
+  },
+  3: {
+    problem: '설치 없이 텔레그램 안에서 음악 청취와 리워드까지 이어져야 했습니다.',
+    action: '미니앱 뷰포트 제약 아래 스트리밍·리워드·온보딩 화면을 구현했습니다.',
+    result: '봇에서 바로 들어가는 실서비스를 운영했습니다. 코드는 사내 비공개입니다.',
+  },
+  4: {
+    problem: 'LINE 인앱과 외부 브라우저의 연결 경로가 달라 온보딩이 자주 끊겼습니다.',
+    action: '환경별 연결 분기, 폼 검증(RHF·Zod), 진행·실패 피드백을 프론트에서 정리했습니다.',
+    result: '한 코드베이스로 미니앱·웹 온보딩이 이어지게 했고, 라이브로 운영 중입니다.',
+  },
+  5: {
+    problem: '트랜잭션·토큰을 찾아 상세까지 들어가기 어려운 조회 경험이었습니다.',
+    action: '리스트·필터·상세 드릴다운 화면을 프론트엔드 중심으로 구성했습니다.',
+    result: '조회형 익스플로러 UX를 라이브로 제공했습니다. 코드는 사내 비공개입니다.',
+  },
+  6: {
+    problem: '스왑·랭킹·대시보드 정보가 흩어져 현황을 한눈에 보기 어려웠습니다.',
+    action: '데이터 밀도가 높은 조회 화면을 나누고 가시성을 맞춰 구현했습니다.',
+    result: '한 서비스에서 현황을 볼 수 있게 했습니다. 코드는 사내 비공개입니다.',
+  },
+  7: {
+    problem: '웹·모바일 예치 단계가 길어 입력 중 이탈하기 쉬웠습니다.',
+    action: '입력 검증과 진행 상태 표시로 예치 온보딩을 단순화했습니다.',
+    result: '웹·모바일에서 같은 예치 흐름을 쓸 수 있게 했습니다. 코드는 사내 비공개입니다.',
+  },
+  8: {
+    problem: '사주·MBTI 결과를 다시 보려면 정보를 처음부터 다시 넣어야 했습니다.',
+    action: 'Next.js로 검색·인증·Supabase 저장과 대시보드의 empty·loading·error를 구현했습니다.',
+    result: '로그인 후 히스토리로 다시 볼 수 있는 개인 서비스입니다. GitHub 코드가 공개되어 있습니다.',
+  },
 };
 
 /**
@@ -162,7 +216,7 @@ export function getProjects(): Project[] {
 
     const base: Project = {
       id: config.id,
-      title: readmeData.title || `프로젝트 ${config.id}`,
+      title: titleOverrides[config.id] || readmeData.title || `프로젝트 ${config.id}`,
       description: descriptionOverrides[config.id] || readmeData.description || '설명이 없습니다.',
       technologies: readmeData.technologies.length > 0 
         ? readmeData.technologies 
@@ -171,7 +225,8 @@ export function getProjects(): Project[] {
       link: config.link,
       github: config.github,
       featured: config.featured !== false,
-      readmePath: config.readmePath, // README 경로 추가
+      readmePath: config.readmePath,
+      caseStudy: caseStudyOverrides[config.id],
     };
 
     // id 1: `public`에 없는 jpg 대신 번들된 PNG 썸네일·스크린샷 사용

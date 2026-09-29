@@ -6,6 +6,12 @@ export interface ProjectScreenshot {
   alt: string;
 }
 
+export interface ProjectCaseStudy {
+  problem: string;
+  action: string;
+  result: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -17,7 +23,8 @@ export interface Project {
   link?: string;
   github?: string;
   featured?: boolean;
-  readmePath?: string; // README 파일 경로 추가
+  readmePath?: string;
+  caseStudy?: ProjectCaseStudy;
 }
 
 export interface ProjectDetail extends Project {

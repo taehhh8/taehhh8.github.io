@@ -8,13 +8,26 @@ import Contact from '@/components/Contact/Contact';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
 import { projects } from '@/data/projects';
 
+const featuredProject = projects.find((project) => project.id === 4) ?? projects[0];
+
 export default function Home() {
   return (
     <>
       <Navigation />
       <ThemeToggle />
       <main>
-        <Hero />
+        <Hero
+          featuredProject={
+            featuredProject
+              ? {
+                  id: featuredProject.id,
+                  title: featuredProject.title,
+                  description: featuredProject.description,
+                  image: featuredProject.image,
+                }
+              : undefined
+          }
+        />
         <About />
         <Skills />
         <Projects projects={projects} />

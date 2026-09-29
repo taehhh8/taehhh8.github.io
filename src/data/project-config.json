@@ -1,13 +1,5 @@
 [
   {
-    "id": 8,
-    "readmePath": "projects/sajuViewerProject.md",
-    "image": "/saju-viewer.jpg",
-    "link": "#",
-    "github": "https://github.com/taehhh8/SajuViewer",
-    "featured": true
-  },
-  {
     "id": 4,
     "readmePath": "projects/kaiaMiniapp.md",
     "image": "/kaia-miniapp.jpg",
@@ -61,6 +53,14 @@
     "image": "/aug-token.jpg",
     "link": "https://auggold.com",
     "github": "#",
+    "featured": true
+  },
+  {
+    "id": 8,
+    "readmePath": "projects/sajuViewerProject.md",
+    "image": "/saju-viewer.jpg",
+    "link": "#",
+    "github": "https://github.com/taehhh8/SajuViewer",
     "featured": true
   }
 ]
