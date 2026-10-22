@@ -1,187 +1,69 @@
 # 박태현 | Frontend Developer Portfolio
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.34.3-FF0080?style=for-the-badge&logo=framer)
+**🔗 https://taehhh8.github.io**
 
-## 🚀 About This Portfolio
+React·Next.js·TypeScript로 서비스 프론트엔드를 설계·운영해 온 4년 차 개발자의 포트폴리오 사이트입니다.
+실서비스로 배포·운영한 프로젝트를 문제 → 해결 → 결과 형식의 케이스 스터디로 정리했습니다.
 
-4년 경력의 프론트엔드 개발자 포트폴리오입니다. React·Next.js·TypeScript로 제품 UI를 만들고, Next.js 16 기반으로 이 사이트도 구성했습니다.
+## 주요 프로젝트
 
-## ✨ Key Features
+회사 저장소는 비공개라서 라이브 URL과 사이트의 상세 페이지로 확인하실 수 있습니다.
 
-- **⚡ 최신 기술 스택**: Next.js 16, React 19, TypeScript
-- **🎨 현대적 디자인**: 세련된 그라데이션과 애니메이션
-- **📱 반응형**: 모바일부터 데스크톱까지 완벽한 대응
-- **🌓 다크 모드**: 라이트/다크 테마 지원
-- **🎯 최적화**: 성능과 SEO 최적화
-- **♿ 접근성**: 웹 접근성 표준 준수
+| 프로젝트 | 기간 | 핵심 내용 | 링크 |
+| --- | --- | --- | --- |
+| LINE 미니앱 온보딩 | 2025.05 ~ 2025.08 | LIFF 인앱·외부 브라우저 연결 분기, 다단계 폼 검증(RHF·Zod), 다국어 | [라이브](https://line.khans.io) |
+| 텔레그램 미니앱 | 2024.11 ~ 2025.05 | 인앱 스트리밍·리워드·온보딩 화면, 한/영/중 다국어 | [라이브](https://t.me/musikhan_bot/MusiKhan) |
+| 예치·보상 플로우 | 2022.10 ~ 2024.05 | 다단계 신청 UX, React+JS → Next.js+TS+Redux Toolkit 마이그레이션 | [라이브](https://staking.khans.io) |
+| 런치패드 구매 퍼널 | 2024.04 ~ 2024.10 | 상태별 구매 화면, 무한스크롤·코드 스플리팅 | [라이브](https://launchpad.khans.io) |
+| 스왑·대시보드 | 2025.09 ~ | 데이터 밀도 높은 조회 UI, 차트 | [라이브](https://beatswap.io) |
+| 조회형 익스플로러 | 2025.09 ~ 2025.11 | 리스트·필터·상세 드릴다운, 라우트 코드 스플리팅 | [라이브](https://scan.beatswap.io) |
+| 예치 온보딩 | 2026.01 ~ 2026.03 | 웹·모바일 예치 입력 검증·진행 상태, 5개 언어 | [라이브](https://auggold.com) |
+| 사주 조회 서비스 (개인) | 2024.11 ~ 2025.02 | 검색·인증·결과 저장 대시보드, Supabase | [GitHub](https://github.com/taehhh8/SajuViewer) |
 
-## 🛠️ Tech Stack
+## 이 사이트의 기술 스택
 
-### Frontend
-
-- **Framework**: Next.js 16.1.6 (App Router)
-- **UI Library**: React 19.2.3
-- **Language**: TypeScript 5
+- **Framework**: Next.js 16 (App Router, `output: 'export'` 정적 빌드), React 19, React Compiler
+- **Language**: TypeScript
 - **Styling**: SCSS Modules
-- **Animation**: Framer Motion 12.34.3
-- **Markdown**: react-markdown 10.1.0
+- **Animation**: Framer Motion
+- **Content**: 프로젝트 상세를 Markdown으로 관리하고 빌드 시 파싱 (`react-markdown`)
+- **Deploy**: GitHub Actions → GitHub Pages
 
-### Development
-
-- **Package Manager**: npm
-- **Code Quality**: ESLint
-- **Version Control**: Git
-
-## 📁 Project Structure
+## 프로젝트 구조
 
 ```
-taehhh8.github.io/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── layout.tsx         # Root layout with metadata
-│   │   ├── page.tsx           # Home page
-│   │   └── globals.css        # Global styles
-│   ├── components/            # React components
-│   │   ├── Hero/             # Hero section
-│   │   ├── About/            # About section
-│   │   ├── Skills/           # Skills showcase
-│   │   ├── Projects/         # Projects portfolio
-│   │   ├── Experience/       # Work experience
-│   │   ├── Contact/          # Contact information
-│   │   ├── Navigation/       # Navigation bar
-│   │   └── ThemeToggle/      # Dark mode toggle
-│   ├── styles/               # Global SCSS
-│   │   ├── _variables.scss   # Design tokens
-│   │   ├── _mixins.scss      # Reusable mixins
-│   │   └── main.scss         # Main stylesheet
-│   ├── data/                 # Project data
-│   │   ├── projects.ts       # Projects list
-│   │   └── projects/         # Project details (MD)
-│   ├── types/                # TypeScript types
-│   └── utils/                # Utility functions
-└── public/                   # Static assets
+src/
+├── app/
+│   ├── page.tsx                 # 메인 (Hero·About·Skills·Projects·Experience·Contact)
+│   └── projects/[id]/page.tsx   # 프로젝트 상세 페이지 (정적 생성)
+├── components/                  # 섹션별 컴포넌트 + SCSS Module
+├── data/
+│   ├── project-config.json      # 프로젝트 목록 (id, 문서 경로, 링크)
+│   ├── projects/*.md            # 프로젝트 상세 문서
+│   └── projects.ts              # 문서 파싱 + 제목·요약·케이스 스터디·스크린샷 연결
+├── assets/                      # 프로젝트 스크린샷
+└── utils/                       # Markdown 파서
 ```
 
-## 🚀 Getting Started
+### 프로젝트 추가하기
 
-### Prerequisites
+1. `src/data/projects/`에 상세 문서(`.md`)를 추가합니다.
+2. `src/data/project-config.json`에 id, 문서 경로, 라이브·GitHub 링크를 등록합니다.
+3. 스크린샷은 `src/assets/`에 넣고 `src/assets/_index.ts`에서 export한 뒤, `src/data/projects.ts`에서 연결합니다.
 
-- Node.js 20.x or higher
-- npm or yarn
+## 로컬 실행
 
-### Installation
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/taehhh8/taehhh8.github.io.git
-cd taehhh8.github.io
-```
-
-2. **Install dependencies**
+Node.js 20 이상이 필요합니다.
 
 ```bash
 npm install
+npm run dev      # http://localhost:3000
+npm run build    # 정적 결과물이 out/ 에 생성됩니다
 ```
 
-3. **Run the development server**
+`main` 브랜치에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드해서 GitHub Pages에 배포합니다.
 
-```bash
-npm run dev
-```
+## 연락처
 
-4. **Open your browser**
-
-```
-http://localhost:3000
-```
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 📝 Customization
-
-### Update Personal Information
-
-1. **Hero Section**: Edit `src/components/Hero/Hero.tsx`
-2. **About Section**: Edit `src/components/About/About.tsx`
-3. **Projects**: Add/edit files in `src/data/projects/`
-4. **Contact**: Edit `src/components/Contact/Contact.tsx`
-
-### Modify Design
-
-- **Colors**: Edit `src/styles/_variables.scss`
-- **Typography**: Edit font imports in `src/styles/main.scss`
-- **Animations**: Customize Framer Motion configs in components
-
-## 🎨 Design System
-
-### Color Palette
-
-```scss
-// Light Mode
-$primary-color: #3b82f6; // Modern blue
-$secondary-color: #8b5cf6; // Purple
-$accent-color: #06b6d4; // Cyan
-
-// Dark Mode
-$dark-primary-color: #60a5fa;
-$dark-secondary-color: #a78bfa;
-$dark-accent-color: #22d3ee;
-```
-
-### Typography
-
-- **Primary Font**: Inter (Google Fonts)
-- **Monospace**: JetBrains Mono
-
-## 📊 Performance
-
-- ✅ Lighthouse Score: 95+
-- ✅ First Contentful Paint: < 1.5s
-- ✅ Largest Contentful Paint: < 2.5s
-- ✅ Total Bundle Size: Optimized with Next.js
-
-## 🌐 Deployment
-
-This portfolio is deployed on GitHub Pages. To deploy your own:
-
-1. **Update repository settings**
-   - Go to Settings > Pages
-   - Set Source to "GitHub Actions"
-
-2. **Push to main branch**
-
-```bash
-git add .
-git commit -m "Update portfolio"
-git push origin main
-```
-
-## 📧 Contact
-
-- **Email**: [taehyun8534@gmail.com]
+- **Email**: taehyun8534@gmail.com
 - **GitHub**: [@taehhh8](https://github.com/taehhh8)
-- **Portfolio**: [taehhh8.github.io](https://taehhh8.github.io)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- Design inspiration from modern portfolio trends
-- Icons from Material Symbols
-- Animations powered by Framer Motion
-- Built with ❤️ using Next.js
-
----
-
-⭐ If you found this portfolio helpful, please consider giving it a star!
